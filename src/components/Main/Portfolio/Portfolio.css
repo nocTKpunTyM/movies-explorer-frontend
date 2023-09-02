@@ -1,0 +1,27 @@
+@import url(./__flex/portfolio__flex.css);
+@import url(./__project-button/portfolio__project-button.css);
+@import url(./__project-name/portfolio__project-name.css);
+@import url(./__title/portfolio__title.css);
+
+.portfolio {
+    width: 80%;
+    min-width: 292px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (min-width: 768px) {
+	.portfolio {
+        width: 87%;
+        min-width: 668px;
+        padding: 22px 0 69px 0;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.portfolio {
+        width: 89%;
+        min-width: 1140px;
+        padding: 33px 0 69px 0;
+	}
+}

@@ -1,0 +1,20 @@
+.movies-card__name {
+    margin: 0;
+    padding: 5px 0 0 0;
+    max-width: 295px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+@media screen and (min-width: 768px) {
+	.movies-card__name {
+                font-size: 13px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.movies-card__name {
+                max-width: 226px;
+	}
+}

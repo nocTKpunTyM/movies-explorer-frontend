@@ -1,0 +1,32 @@
+@import url(./__logo/promo__logo.css);
+@import url(./__text-block/promo__text-block.css);
+@import url(./__title/promo__title.css);
+@import url(./__paragraph/promo__paragraph.css);
+@import url(./__button/promo__button.css);
+
+.promo {
+    padding: 70px 0 30px 0;
+    min-width: 320px;
+    background: #073042;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+	.promo {
+        padding: 140px 0 76px 0;
+        width: 100%;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.promo {
+        
+        padding: 75px 0 76px 0;
+        flex-direction: row-reverse;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+	}
+}

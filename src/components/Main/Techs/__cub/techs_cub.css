@@ -1,0 +1,29 @@
+.techs__cub {
+    width: 84px;
+    height: 57px;
+    border-radius: 10px;
+    background: #E8E8E8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 12px;
+    letter-spacing: -0.48px;
+}
+
+@media screen and (min-width: 768px) {
+	.techs__cub {
+        padding-top: 3px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.techs__cub {
+        padding: 0;
+        width: 90px;
+        height: 60px;
+
+        font-size: 14px;
+        letter-spacing: -0.56px;
+	}
+}

@@ -1,0 +1,11 @@
+@import url(./_type/about-project__week-back.css);
+@import url(./_type/about-project__week-front.css);
+@import url(./_type/about-project__week-green.css);
+@import url(./_type/about-project__week-grey.css);
+
+.about-project__week {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

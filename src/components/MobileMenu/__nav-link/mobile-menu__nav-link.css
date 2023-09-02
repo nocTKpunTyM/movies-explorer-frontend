@@ -1,0 +1,26 @@
+.mobile-menu__nav-link {
+    margin: 0 0 17px 0;
+    color: black;
+    text-decoration: none;
+    transition: opacity 0.2s linear;
+}
+
+.mobile-menu__nav-link:hover {
+    opacity: 70%;
+}
+
+.mobile-menu__nav-link_active {
+    border-bottom: 2px solid black;
+}
+
+@media screen and (min-width: 768px) {
+	.mobile-menu__nav-link {
+        margin: 0 0 24px 0;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.mobile-menu__nav-link_active {
+        margin: 0 0 24px 0;
+	}
+}

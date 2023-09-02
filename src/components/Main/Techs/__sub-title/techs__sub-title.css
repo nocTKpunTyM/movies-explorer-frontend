@@ -1,0 +1,16 @@
+.techs__sub-title {
+    margin: 0;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -1.2px;
+}
+
+@media screen and (min-width: 768px) {
+	.techs__sub-title {
+                width: 100%;
+                font-size: 50px;
+                line-height: 58px; /* 116% */
+                letter-spacing: -2px;
+	}
+}

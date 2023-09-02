@@ -1,0 +1,30 @@
+@import url(./__title/about-project__title.css);
+@import url(./__content-block/about-project__content-block.css);
+@import url(./__text-block/about-project__text-block.css);
+@import url(./__sub-title/about-project__sub-title.css);
+@import url(./__paragraph/about-project__paragraph.css);
+@import url(./__period/about-project__period.css);
+@import url(./__week/about-project__week.css);
+@import url(./__week-text/about-project__week-text.css);
+
+.about-project {
+    width: 80%;
+    min-width: 284px;
+    padding: 72px 0 69px 0;
+}
+
+@media screen and (min-width: 768px) {
+	.about-project {
+        width: 87%;
+        min-width: 668px;
+        padding: 91px 0 69px 0;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.about-project {
+        width: 89%;
+        min-width: 1140px;
+        padding: 112px 0 69px 0;
+	}
+}

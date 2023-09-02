@@ -1,0 +1,21 @@
+.about-project__week-back {
+    margin: 0;
+    width: 35%;
+    min-width: 100px;
+    height: 33px;
+    color: #A0A0A0;
+}
+
+@media screen and (min-width: 768px) {
+	.about-project__week-back {
+        width: 18%;
+        min-width: 140px;
+        height: 46px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.about-project__week-back {
+        min-width: 228px;
+	}
+}

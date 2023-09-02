@@ -1,0 +1,44 @@
+@import url(../AuthForm/__reg-link/auth-form__reg-link.css);
+@import url(../AuthForm/__reg-text/auth-form__reg-text.css);
+
+.not-found {
+    background-color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.not-found__code {
+    margin: 332px 0 0 0;
+    padding: 0;
+    font-size: 80px;
+}
+
+@media screen and (min-width: 768px) {
+	.not-found__code {
+        margin: 408px 0 0 0;
+        font-size: 140px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.not-found__code {
+        margin: 247px 0 0 0;
+        font-size: 140px;
+	}
+}
+
+.not-found__title {
+    margin: 13px 0 270px 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+@media screen and (min-width: 768px) {
+	.not-found__title {
+        margin: 13px 0 170px 0;
+        font-size: 16px;
+	}
+}

@@ -1,0 +1,28 @@
+.promo__paragraph {
+    margin: 24px 0 0 0;
+    padding: 0;
+    max-width: 260px;
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.5;
+}
+
+@media screen and (min-width: 768px) {
+	.promo__paragraph {
+        margin: 22px 0 0 0;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.promo__paragraph {
+        margin: 36px 0 0 0;
+        max-width: 310px;
+        text-align: left;
+	}
+}

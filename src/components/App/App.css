@@ -1,0 +1,27 @@
+html {
+	scroll-behavior: smooth;
+}
+
+.page {
+	margin: auto;
+    min-height: 100vh;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+	.page_type_auth {
+		margin: 0 186px 0 186px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.page_type_auth {
+		margin: 0 442px 0 442px;
+	}
+}

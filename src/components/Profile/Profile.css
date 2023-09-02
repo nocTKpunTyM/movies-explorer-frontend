@@ -1,0 +1,23 @@
+@import url(./__title/profile__title.css);
+@import url(./__save-link/profile__save-link.css);
+@import url(./__bottom-link/profile__bottom-link.css);
+
+.profile {
+        margin: 70px 0 0 0;
+        min-width: 260px;
+        display: flex;
+        flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+	.profile {
+                margin: 236px 0 0 0;
+                min-width: 410px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.profile {
+                margin: 75px 0 0 0;
+	}
+}

@@ -1,0 +1,40 @@
+@import url(./__buttons/header-menu__buttons.css);
+@import url(./__button/header-menu__button.css);
+@import url(./__one-button/header-menu__one-button.css);
+
+.header-menu {
+    margin: 17px 15px 0 0;
+    width: 38px;
+    height: 38px;
+    background: none;
+    background-image: url(../../../images/icon-main.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: none;
+}
+
+@media screen and (min-width: 768px) {
+	.header-menu {
+		margin: 13px 28px 0 0;
+        width: 48px;
+        height: 48px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.header-menu {
+        background-image: url(../../../images/profile.svg);
+		margin: 20px 56px 0 0;
+        width: 128px;
+        height: 40px;
+	}
+}
+
+.header-menu_type_dark {
+    background-image: url(../../../images/icon-main-white.svg);
+}
+
+.header-menu_type_disable {
+    display: none;
+}

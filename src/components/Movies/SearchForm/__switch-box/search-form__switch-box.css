@@ -1,0 +1,23 @@
+.search-form__switch-box {
+    margin: 38px 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+}
+
+@media screen and (min-width: 768px) {
+	.search-form__switch-box {
+        margin: 27px 0 0 0;
+        justify-content: right;
+        gap: 19px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.search-form__switch-box {
+        margin: 30px 0 0 0;
+        justify-content: left;
+        flex-direction: row-reverse;
+        gap: 14px;
+	}
+}

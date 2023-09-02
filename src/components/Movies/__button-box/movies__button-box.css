@@ -1,0 +1,18 @@
+.movies__button-box {
+    margin: 60px 0 0 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+	.movies__button-box {
+        margin: 60px 0 0 0;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.movies__button-box {
+        margin: 62px 0 0 0;
+	}
+}

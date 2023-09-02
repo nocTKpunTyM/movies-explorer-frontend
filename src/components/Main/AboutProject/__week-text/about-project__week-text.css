@@ -1,0 +1,12 @@
+.about-project__week-text {
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+    line-height: 16px;
+}
+
+@media screen and (min-width: 768px) {
+	.about-project__week-text {
+        font-size: 14px;
+	}
+}

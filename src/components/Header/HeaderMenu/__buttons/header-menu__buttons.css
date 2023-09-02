@@ -1,0 +1,10 @@
+.header-menu__buttons {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (min-width: 1280px) {
+	.header-menu__buttons {
+        margin-right: 40px;
+	}
+}
