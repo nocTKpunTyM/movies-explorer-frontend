@@ -5,6 +5,16 @@
     border-bottom: 1px solid #E6E6E6;
     display: flex;
     justify-content: space-between;
+
+    color: black;
+    text-decoration: none;
+    background-size: cover;
+    transition: opacity 0.2s linear;
+}
+
+.portfolio__flex:hover {
+    cursor: pointer;
+    opacity: 70%;
 }
 
 @media screen and (min-width: 768px) {

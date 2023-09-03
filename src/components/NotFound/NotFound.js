@@ -6,7 +6,7 @@ function NotFound() {
       <section className="not-found">
             <p className="not-found__code">404</p>
             <h1 className="not-found__title">Страница не найдена</h1>
-        <p className='auth-form__reg-text'><Link to="/" className='auth-form__reg-link'>Назад</Link></p>
+        <p className='reg-text'><Link to="/" className='reg-link'>Назад</Link></p>
       </section>
     );
   }

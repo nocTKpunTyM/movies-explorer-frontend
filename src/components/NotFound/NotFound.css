@@ -1,5 +1,4 @@
-@import url(../AuthForm/__reg-link/auth-form__reg-link.css);
-@import url(../AuthForm/__reg-text/auth-form__reg-text.css);
+@import url(../AuthForm/AuthForm.css);
 
 .not-found {
     background-color: white;

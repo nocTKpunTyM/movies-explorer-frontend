@@ -1,6 +1,7 @@
 import './Profile.css';
 import ProfileForm from '../ProfileForm/ProfileForm';
 import { Link } from 'react-router-dom';
+import { urls } from '../../utils/constants';
 import Header from '../Header/Header';
 import { useState, useEffect } from 'react';
 
@@ -45,7 +46,7 @@ function Profile() {
       </div>
     </ProfileForm>
     {!isSubmitVisible ? <button className='profile__save-link' onClick={displaySubmit}>Редактировать</button> : ''}
-    {!isSubmitVisible ? <Link to="/sign-up" className='profile__bottom-link'>Выйти из аккаунта</Link> : ''}
+    {!isSubmitVisible ? <Link to={urls.signup} className='profile__bottom-link'>Выйти из аккаунта</Link> : ''}
     </section>
     </>
   )

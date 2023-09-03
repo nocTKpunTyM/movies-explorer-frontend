@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import {useContext} from 'react';
 import { AppContext } from '../../../contexts/AppContext';
 
+import { urls } from '../../../utils/constants';
+
 function HeaderMenu({isLand}) {
   const {handleOpenMenu, isLogin} = useContext(AppContext);
 
@@ -23,7 +25,7 @@ function HeaderMenu({isLand}) {
 
   const loginDescMenu = () => {
     return (
-      <div className='header-menu__one-button'>
+      <div className='header-menu'>
             < ProfileButton isLand={isLand} />
       </div>
     )
@@ -31,15 +33,18 @@ function HeaderMenu({isLand}) {
 
   const loginMobileMenu = () => {
     return (
-      <button className={`header-menu${isLand ? ' header-menu_type_dark' : ''}`} onClick={handleOpenMenu}></button>
+      <div className='header-menu'>
+        <button className={`header-menu__button${isLand ? ' header-menu__button_white' : ' header-menu__button_black'}`} onClick={handleOpenMenu}></button>
+      </div>
+      
     )
   }
 
   const notLoginMenu = () => {
     return (
-      <div className='header-menu__buttons'>
-        <Link to='/sign-up' className='header-menu__button header-menu__button_reg'>Регистрация</Link>
-        <Link to='/sign-in'><button className='header-menu__button_login header-menu__button'>Войти</button></Link>
+      <div className='header-menu header-menu_two-buttons'>
+        <Link to={urls.signup} className='header-menu__button header-menu__button_reg'>Регистрация</Link>
+        <Link to={urls.signin}><button className='header-menu__button_login'>Войти</button></Link>
       </div>
     )
   }

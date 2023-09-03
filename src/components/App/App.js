@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { AppContext } from '../../contexts/AppContext';
+import { urls } from '../../utils/constants';
 
 import NotFound from '../NotFound/NotFound';
 import Register from '../Register/Register';
@@ -28,11 +29,11 @@ function App() {
           <MobileMenu />      
           <Routes>
             <Route path="/" element={ <Main /> } />
-            <Route path="/sign-up" element={ <Register /> } />
-            <Route path="/sign-in" element={ <Login /> } />
-            <Route path="/me" element={ <Profile /> } />
-            <Route path="/movies" element={ <Movies /> } />
-            <Route path="/saved-movies" element={ <SavedMovies /> } />
+            <Route path={urls.signup} element={ <Register /> } />
+            <Route path={urls.signin} element={ <Login /> } />
+            <Route path={urls.profile} element={ <Profile /> } />
+            <Route path={urls.movies} element={ <Movies /> } />
+            <Route path={urls.savedMovies} element={ <SavedMovies /> } />
             <Route path="*" element={ <NotFound /> } />
           </Routes>
       </AppContext.Provider>

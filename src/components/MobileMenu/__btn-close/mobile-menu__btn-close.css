@@ -1,4 +1,4 @@
-.mobile-menu__btn_close {
+.mobile-menu__btn-close {
     margin: 15px 15px 0 0;
     padding: 0;
     border: none;
@@ -11,13 +11,13 @@
     transition: opacity 0.2s linear;
 }
 
-.mobile-menu__btn_close:hover {
+.mobile-menu__btn-close:hover {
     cursor: pointer;
     opacity: 70%;
 }
 
 @media screen and (min-width: 768px) {
-	.mobile-menu__btn_close {
+	.mobile-menu__btn-close {
         margin: 21px 21px 0 0;
         width: 34px;
         height: 34px;

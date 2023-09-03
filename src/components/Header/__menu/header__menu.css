@@ -1,11 +1,11 @@
-@import url(./_type/header__menu_type_dark.css);
+
 
 .header__menu {
     margin: 17px 15px 0 0;
     width: 38px;
     height: 38px;
     background: none;
-    background-image: url(../../../images/icon-main.svg);
+    
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

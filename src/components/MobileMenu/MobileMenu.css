@@ -1,11 +1,11 @@
 @import url(./__white-board/mobile-menu__white-board.css);
 @import url(./__btn-close-box/mobile-menu__btn-close-box.css);
-@import url(./__btn-close/mobile-menu__btn_close.css);
+@import url(./__btn-close/mobile-menu__btn-close.css);
 @import url(./__nav-box/mobile-menu__nav-box.css);
 @import url(./__nav/mobile-menu__nav.css);
 @import url(./__nav-row/mobile-menu__nav-row.css);
 @import url(./__nav-link/mobile-menu__nav-link.css);
-@import url(./__btn-profile/mobile-menu__btn_profile.css);
+@import url(./__btn-profile-box/mobile-menu__btn-profile-box.css);
 
 
 .mobile-menu {

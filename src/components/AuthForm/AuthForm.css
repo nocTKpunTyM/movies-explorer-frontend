@@ -5,10 +5,8 @@
 @import url(./__input/auth-form__input.css);
 @import url(./__label/auth-form__label.css);
 @import url(./__submit/auth-form__submit.css);
-@import url(./__reg-link/auth-form__reg-link.css);
-@import url(./__reg-text/auth-form__reg-text.css);
 
-.auth-form-section {
+.auth-form {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -16,7 +14,7 @@
 }
 
 @media screen and (min-width: 768px) {
-	.auth-form-section {
+	.auth-form {
         margin: 0;
         width: 70%;
 		max-width: 396px;
@@ -24,7 +22,7 @@
 	}
 }
 
-.auth-form {
+.auth-form__form {
     margin: 80px 30px 0 30px;
     padding: 0;
     width: 100%;
@@ -35,8 +33,43 @@
 }
 
 @media screen and (min-width: 768px) {
-	.auth-form {
+	.auth-form__form {
         margin: 40px 0 0 0;
         min-height: 380px;
 	}
+}
+
+
+.reg-text {
+    margin: 15px 0 30px 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 12px;
+    color: #A0A0A0;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+	.reg-text {
+        margin: 16px 0 0 0;
+        font-size: 14px;
+	}
+}
+
+
+.reg-link {
+    font-size: 12px;
+    color: #3456F3;
+    text-decoration: none;
+    transition: opacity 0.2s linear;
+}
+
+@media screen and (min-width: 768px) {
+	.reg-link {
+        font-size: 14px;
+	}
+}
+
+.reg-link:hover {
+    opacity: 70%;
 }

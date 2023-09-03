@@ -1,6 +1,7 @@
 import AuthForm from '../AuthForm/AuthForm';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { Link } from 'react-router-dom';
+import { urls } from '../../utils/constants';
 import Header from '../Header/Header';
 
 function Register() {
@@ -58,7 +59,7 @@ function Register() {
         )}
       </div>
     </AuthForm>
-    <p className='auth-form__reg-text'>Уже зарегистрированы? <Link to="/sign-in" className='auth-form__reg-link'>Войти</Link></p>
+    <p className='reg-text'>Уже зарегистрированы? <Link to={urls.signin} className='reg-link'>Войти</Link></p>
     </>
   )
 }

@@ -1,15 +1,16 @@
 import './Navigation.css';
 import { NavLink } from 'react-router-dom';
+import { urls } from '../../utils/constants';
 
 function Navigation({isLand}) {
   
   return (
-    <div className='navigation'>
+    <nav className='navigation'>
         <ul className='navigation__ul'>
           
             <li className='navigation__line'>
               <NavLink 
-                to='/movies'
+                to={urls.movies}
                 className={({isActive}) => 
                   `navigation__link${isActive ? " navigation__link_active" : ""}${isLand ? ' navigation__link_land' : ''}`}>
                 Фильмы
@@ -18,18 +19,15 @@ function Navigation({isLand}) {
 
             <li className='navigation__line'>
               <NavLink
-                to='/saved-movies'
+                to={urls.savedMovies}
                 className={({isActive}) => 
-                                        `navigation__link
-                                        ${isActive && "navigation__link_active"}
-                                        ${isLand && 'navigation__link_land'}`}
-              >
+                  `navigation__link${isActive ? " navigation__link_active" : ""}${isLand ? ' navigation__link_land' : ''}`}>
                 Сохраненные фильмы
               </NavLink>
             </li>
 
         </ul>
-    </div>
+    </nav>
   );
 }
 
