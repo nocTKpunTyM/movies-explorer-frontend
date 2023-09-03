@@ -34,7 +34,11 @@ function HeaderMenu({isLand}) {
   const loginMobileMenu = () => {
     return (
       <div className='header-menu'>
-        <button className={`header-menu__button${isLand ? ' header-menu__button_white' : ' header-menu__button_black'}`} onClick={handleOpenMenu}></button>
+        <button
+          className={`header-menu__button${isLand ? ' header-menu__button_white' : ' header-menu__button_black'}`}
+          onClick={handleOpenMenu}
+          type='button'>
+        </button>
       </div>
       
     )
@@ -44,7 +48,7 @@ function HeaderMenu({isLand}) {
     return (
       <div className='header-menu header-menu_two-buttons'>
         <Link to={urls.signup} className='header-menu__button header-menu__button_reg'>Регистрация</Link>
-        <Link to={urls.signin}><button className='header-menu__button_login'>Войти</button></Link>
+        <Link to={urls.signin}><button className='header-menu__button_login' type='button'>Войти</button></Link>
       </div>
     )
   }

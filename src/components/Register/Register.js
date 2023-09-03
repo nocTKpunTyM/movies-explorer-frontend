@@ -18,7 +18,7 @@ function Register() {
         <label className="auth-form__label">Имя</label>
         <input className="auth-form__input"
           name="name" type="text"
-          minLength="2"
+          minLength="2" maxLength="22"
           value={values.name || ''} onChange={handleChange}
           required
         />

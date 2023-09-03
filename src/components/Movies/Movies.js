@@ -13,7 +13,7 @@ function Movies() {
             <SearchForm />
             <MoviesCardList />
             <div className='movies__button-box'>
-                <button className='movies__button'>Ещё</button>
+                <button className='movies__button' type='button'>Ещё</button>
             </div>
         </main>
         <Footer />

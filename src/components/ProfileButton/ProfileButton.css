@@ -1,13 +1,16 @@
 .profile-button {
-    display: block;
-    width: 128px;
-    height: 40px;
+    margin-left: 12px;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: right;
     background: none;
-    background-image: url(../../images/profile.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     border: none;
+    border-radius: 35px;
+    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
     transition: opacity 0.2s linear;
 }
 
@@ -16,5 +19,25 @@
 }
 
 .profile-button_dark {
-    background-image: url(../../images/profile-dark.svg);
+    background: #2BE080;
+}
+
+
+.profile-button__text {
+    margin: 10px 7px 0 0;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 12px;
+}
+
+.profile-button__circle {
+    margin: 2px 2px 0 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #F9F9F9;
+}
+
+.profile-button__man {
+    margin: 7px 0 0 7.5px;
 }

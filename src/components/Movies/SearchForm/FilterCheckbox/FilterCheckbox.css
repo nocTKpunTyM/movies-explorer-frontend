@@ -5,11 +5,13 @@
 	position: relative;
 	vertical-align: middle;
 	font-size: 14px;
-	user-select: none;	
+	user-select: none;
+	transition: opacity 0.2s linear;
 }
 
 .checkbox-ios:hover {
 	cursor: pointer;
+	opacity: 70%;
 }
 
 .checkbox-ios .checkbox-ios-switch {

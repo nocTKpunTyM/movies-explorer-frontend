@@ -12,7 +12,7 @@ function MobileMenu() {
     <section className={`mobile-menu${isMenuOpen ? ' mobile-menu_opened' : ''}`}>
       <div className='mobile-menu__white-board'>
       <div className='mobile-menu__btn-close-box'>
-            <button className='mobile-menu__btn-close' onClick={handleOpenMenu}></button>
+            <button className='mobile-menu__btn-close' onClick={handleOpenMenu} type='button'></button>
         </div>
         <div className='mobile-menu__nav-box'>
             <ul className='mobile-menu__nav'>

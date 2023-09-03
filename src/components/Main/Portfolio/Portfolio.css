@@ -2,6 +2,7 @@
 @import url(./__project-button/portfolio__project-button.css);
 @import url(./__project-name/portfolio__project-name.css);
 @import url(./__title/portfolio__title.css);
+@import url(./__list/portfolio__list.css);
 
 .portfolio {
     width: 80%;

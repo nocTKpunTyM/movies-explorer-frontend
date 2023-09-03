@@ -39,45 +39,48 @@ function MoviesCard() {
         if (window.location.pathname === '/movies') {
             return (
                 <>
-                    <div className='movies-card'>
+                    <li className='movies-card'>
                         <img src={cardImg3} alt='В погоне за Бенкси' className='movies-card__img'></img>
                         <div className='movies-card__text-box'>
-                            <p className='movies-card__name'>В погоне за Бенкси</p>
+                            <h2 className='movies-card__name'>В погоне за Бенкси</h2>
                             <button
                                 className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                                 onClick={changeLike}
+                                type='button'
                             ></button>
                         </div>
                         <div className='movies-card__time-box'>
                             <p className='movies-card__time'>1ч 42м</p>
                         </div>
-                    </div>
-                    <div className='movies-card'>
+                    </li>
+                    <li className='movies-card'>
                         <img src={cardImg4} alt='Баския: Взрыв реальности' className='movies-card__img'></img>
                         <div className='movies-card__text-box'>
                             <p className='movies-card__name'>Баския: Взрыв реальности</p>
                             <button
                                 className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                                 onClick={changeLike}
+                                type='button'
                             ></button>
                         </div>
                         <div className='movies-card__time-box'>
                             <p className='movies-card__time'>1ч 42м</p>
                         </div>
-                    </div>
-                    <div className='movies-card'>
+                    </li>
+                    <li className='movies-card'>
                         <img src={cardImg5} alt='Бег это свобода' className='movies-card__img'></img>
                         <div className='movies-card__text-box'>
                             <p className='movies-card__name'>Бег это свобода</p>
                             <button
                                 className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                                 onClick={changeLike}
+                                type='button'
                             ></button>
                         </div>
                         <div className='movies-card__time-box'>
                             <p className='movies-card__time'>1ч 42м</p>
                         </div>
-                    </div>
+                    </li>
                 </>
             )
         }
@@ -88,63 +91,67 @@ function MoviesCard() {
             if (window.location.pathname === '/movies') {
                 return (
                     <>
-                        <div className='movies-card'>
+                        <li className='movies-card'>
                             <img src={cardImg6} alt='Книготорговцы' className='movies-card__img'></img>
                             <div className='movies-card__text-box'>
                                 <p className='movies-card__name'>Книготорговцы</p>
                                 <button
                                     className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                                     onClick={changeLike}
+                                    type='button'
                                 ></button>
                             </div>
                             <div className='movies-card__time-box'>
                                 <p className='movies-card__time'>1ч 42м</p>
                             </div>
-                        </div>
-                        <div className='movies-card'>
+                        </li>
+                        <li className='movies-card'>
                             <img src={cardImg7} alt='Когда я думаю о Германии ночью' className='movies-card__img'></img>
                             <div className='movies-card__text-box'>
                                 <p className='movies-card__name'>Когда я думаю о Германии ночью</p>
                                 <button
                                     className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                                     onClick={changeLike}
+                                    type='button'
                                 ></button>
                             </div>
                             <div className='movies-card__time-box'>
                                 <p className='movies-card__time'>1ч 42м</p>
                             </div>
-                        </div>
-                        <div className='movies-card'>
+                        </li>
+                        <li className='movies-card'>
                             <img src={cardImg8} alt='Gimme Danger: История Игги и The Stooges' className='movies-card__img'></img>
                             <div className='movies-card__text-box'>
                                 <p className='movies-card__name'>Gimme Danger: История Игги и The Stooges</p>
                                 <button
                                     className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                                     onClick={changeLike}
+                                    type='button'
                                 ></button>
                             </div>
                             <div className='movies-card__time-box'>
                                 <p className='movies-card__time'>1ч 42м</p>
                             </div>
-                        </div>
+                        </li>
                     </>
                     
                 )
             }
             return (
-                <div className='movies-card'>
+                <li className='movies-card'>
                     <img src={cardImg3} alt='В погоне за Бенкси' className='movies-card__img'></img>
                     <div className='movies-card__text-box'>
                         <p className='movies-card__name'>В погоне за Бенкси</p>
                         <button
                             className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                             onClick={changeLike}
+                            type='button'
                         ></button>
                     </div>
                     <div className='movies-card__time-box'>
                         <p className='movies-card__time'>1ч 42м</p>
                     </div>
-                </div>
+                </li>
             )    
         } else {
             return '';
@@ -156,110 +163,118 @@ function MoviesCard() {
             if (window.location.pathname === '/movies') {
                 return (
                     <>
-                        <div className='movies-card'>
+                        <li className='movies-card'>
                             <img src={cardImg9} alt='Дженис: Маленькая девочка грустит' className='movies-card__img'></img>
                             <div className='movies-card__text-box'>
                                 <p className='movies-card__name'>Дженис: Маленькая девочка грустит</p>
                                 <button
                                     className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                                     onClick={changeLike}
+                                    type='button'
                                 ></button>
                             </div>
                             <div className='movies-card__time-box'>
                                 <p className='movies-card__time'>1ч 42м</p>
                             </div>
-                        </div>
-                        <div className='movies-card'>
+                        </li>
+                        <li className='movies-card'>
                             <img src={cardImg10} alt='Соберись перед прыжком' className='movies-card__img'></img>
                             <div className='movies-card__text-box'>
                                 <p className='movies-card__name'>Соберись перед прыжком</p>
                                 <button
                                     className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                                     onClick={changeLike}
+                                    type='button'
                                 ></button>
                             </div>
                             <div className='movies-card__time-box'>
                                 <p className='movies-card__time'>1ч 42м</p>
                             </div>
-                        </div>
-                        <div className='movies-card'>
+                        </li>
+                        <li className='movies-card'>
                             <img src={cardImg11} alt='Пи Джей Харви: A dog called money' className='movies-card__img'></img>
                             <div className='movies-card__text-box'>
                                 <p className='movies-card__name'>Пи Джей Харви: A dog called money</p>
                                 <button
                                     className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                                     onClick={changeLike}
+                                    type='button'
                                 ></button>
                             </div>
                             <div className='movies-card__time-box'>
                                 <p className='movies-card__time'>1ч 42м</p>
                             </div>
-                        </div>
-                        <div className='movies-card'>
+                        </li>
+                        <li className='movies-card'>
                             <img src={cardImg12} alt='По волнам: Искусство звука в кино' className='movies-card__img'></img>
                             <div className='movies-card__text-box'>
                                 <p className='movies-card__name'>По волнам: Искусство звука в кино</p>
                                 <button
                                     className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                                     onClick={changeLike}
+                                    type='button'
                                 ></button>
                             </div>
                             <div className='movies-card__time-box'>
                                 <p className='movies-card__time'>1ч 42м</p>
                             </div>
-                        </div>
-                        <div className='movies-card'>
+                        </li>
+                        <li className='movies-card'>
                             <img src={cardImg13} alt='Рудбой' className='movies-card__img'></img>
                             <div className='movies-card__text-box'>
                                 <p className='movies-card__name'>Рудбой</p>
                                 <button
                                     className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                                     onClick={changeLike}
+                                    type='button'
                                 ></button>
                             </div>
                             <div className='movies-card__time-box'>
                                 <p className='movies-card__time'>1ч 42м</p>
                             </div>
-                        </div>
-                        <div className='movies-card'>
+                        </li>
+                        <li className='movies-card'>
                             <img src={cardImg14} alt='Скейт — кухня' className='movies-card__img'></img>
                             <div className='movies-card__text-box'>
                                 <p className='movies-card__name'>Скейт — кухня</p>
                                 <button
                                     className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                                     onClick={changeLike}
+                                    type='button'
                                 ></button>
                             </div>
                             <div className='movies-card__time-box'>
                                 <p className='movies-card__time'>1ч 42м</p>
                             </div>
-                        </div>
-                        <div className='movies-card'>
+                        </li>
+                        <li className='movies-card'>
                             <img src={cardImg15} alt='Война искусств' className='movies-card__img'></img>
                             <div className='movies-card__text-box'>
                                 <p className='movies-card__name'>Война искусств</p>
                                 <button
                                     className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                                     onClick={changeLike}
+                                    type='button'
                                 ></button>
                             </div>
                             <div className='movies-card__time-box'>
                                 <p className='movies-card__time'>1ч 42м</p>
                             </div>
-                        </div>
-                        <div className='movies-card'>
+                        </li>
+                        <li className='movies-card'>
                             <img src={cardImg16} alt='Зона' className='movies-card__img'></img>
                             <div className='movies-card__text-box'>
                                 <p className='movies-card__name'>Зона</p>
                                 <button
                                     className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                                     onClick={changeLike}
+                                    type='button'
                                 ></button>
                             </div>
                             <div className='movies-card__time-box'>
                                 <p className='movies-card__time'>1ч 42м</p>
                             </div>
-                        </div>
+                        </li>
                     </>   
                 )
             }
@@ -273,33 +288,35 @@ function MoviesCard() {
 
     return (
         <>  
-            <div className='movies-card'>
+            <li className='movies-card'>
                 <img src={cardImg1} alt='33 слова о дизайне' className='movies-card__img'></img>
                 <div className='movies-card__text-box'>
                     <p className='movies-card__name'>33 слова о дизайне</p>
                     <button
                         className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                         onClick={changeLike}
+                        type='button'
                     ></button>
 
                 </div>
                 <div className='movies-card__time-box'>
                     <p className='movies-card__time'>1ч42м</p>
                 </div>
-            </div>
-            <div className='movies-card'>
+            </li>
+            <li className='movies-card'>
                 <img src={cardImg2} alt='Киноальманах «100 лет дизайна»' className='movies-card__img'></img>
                 <div className='movies-card__text-box'>
                     <p className='movies-card__name'>Киноальманах «100 лет дизайна»</p>
                     <button
                         className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
                         onClick={changeLike}
+                        type='button'
                     ></button>
                 </div>
                 <div className='movies-card__time-box'>
                     <p className='movies-card__time'>1ч 42м</p>
                 </div>
-            </div>
+            </li>
             {superMegaFuncForTest0()}
             {superMegaFuncForTest()}
             {superMegaFuncForTest2()}
