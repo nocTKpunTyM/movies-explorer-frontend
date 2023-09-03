@@ -4,7 +4,9 @@ import './MoviesCardList.css';
 function MoviesCardList() {
     return (
         <section className='movies-cardlist'>
-            <MoviesCard />
+            <div className='movies-cardlist__box'>
+                <MoviesCard />
+            </div>
         </section>
     );
 }

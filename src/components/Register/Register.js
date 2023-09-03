@@ -17,7 +17,7 @@ function Register() {
       <div className="auth-form__input-block">
         <label className="auth-form__label">Имя</label>
         <input className="auth-form__input"
-          name="name" type="name"
+          name="name" type="text"
           minLength="2"
           value={values.name || ''} onChange={handleChange}
           required

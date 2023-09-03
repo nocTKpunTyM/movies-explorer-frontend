@@ -16,24 +16,24 @@ function MobileMenu() {
         </div>
         <div className='mobile-menu__nav-box'>
             <ul className='mobile-menu__nav'>
-              <NavLink to='/' className={({isActive}) => 
+              <li className='mobile-menu__nav-row' onClick={handleOpenMenu}>
+                <NavLink to='/' className={({isActive}) => 
                   `mobile-menu__nav-link${isActive ? " mobile-menu__nav-link_active" : ""}`}>
-                <li className='mobile-menu__nav-row' onClick={handleOpenMenu}>
                     Главная
-                </li>
-              </NavLink>
-              <NavLink to={urls.movies} className={({isActive}) => 
+                </NavLink>
+              </li>
+              <li className='mobile-menu__nav-row' onClick={handleOpenMenu}>
+                <NavLink to={urls.movies} className={({isActive}) => 
                   `mobile-menu__nav-link${isActive ? " mobile-menu__nav-link_active" : ""}`}>
-                <li className='mobile-menu__nav-row' onClick={handleOpenMenu}>
                     Фильмы
-                </li>
-              </NavLink>
-              <NavLink to={urls.savedMovies} className={({isActive}) => 
+                </NavLink>
+              </li>
+              <li className='mobile-menu__nav-row' onClick={handleOpenMenu}>
+                <NavLink to={urls.savedMovies} className={({isActive}) => 
                   `mobile-menu__nav-link${isActive ? " mobile-menu__nav-link_active" : ""}`}>
-                <li className='mobile-menu__nav-row' onClick={handleOpenMenu}>
                     Сохраненные фильмы
-                </li>
-              </NavLink>
+                </NavLink>
+              </li>
             </ul>
         </div>
         <div className='mobile-menu__btn-profile-box'>

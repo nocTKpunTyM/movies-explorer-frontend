@@ -1,0 +1,22 @@
+.header-auth__logo {
+	margin: 56px auto 0 auto;
+    max-width: 38px;
+	max-height: 38px;
+	transition: opacity 0.2s linear;
+}
+
+@media screen and (min-width: 768px) {
+	.header-auth__logo {
+		margin: 232px 0 30px 0;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.header-auth__logo {
+		margin: 70px 0 30px 0;
+	}
+}
+
+.header-auth__logo:hover {
+    opacity: 80%;
+}
