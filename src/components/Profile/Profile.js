@@ -15,7 +15,8 @@ function Profile() {
   return (
     <>
     <Header />
-    <main className='profile'>
+    <main>
+    <section className='profile'>
       <h1 className='profile__title'>Привет, Виталий!</h1>
       <ProfileForm
         submitText="Сохранить"
@@ -43,6 +44,7 @@ function Profile() {
         />
       </div>
     </ProfileForm>
+    </section>
     </main>
     </>
   )

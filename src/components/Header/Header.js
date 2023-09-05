@@ -39,7 +39,7 @@ function Header() {
     <header className={headerClass}>
       <Link to="/" className={logoClass} onClick={displaySubmit}><img src={headerLogo} alt="На главную" /></Link>
       {needHeaderMenu & isLogin ? <Navigation isLand={isLand} /> : ''}
-      {needHeaderMenu && <HeaderMenu isLand={isLand} />}
+      {needHeaderMenu ? <HeaderMenu isLand={isLand}/> : ''}
     </header>
   );
 }

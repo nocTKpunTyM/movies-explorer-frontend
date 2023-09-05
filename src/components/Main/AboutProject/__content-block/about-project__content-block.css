@@ -1,13 +1,12 @@
 .about-project__content-block {
-    margin: 28px 0 0 0;
     padding: 62px 0 0 0;
-    border-top: 1px solid black;
 }
 
 @media screen and (min-width: 768px) {
 	.about-project__content-block {
-        margin: 22px 0 0 0;
         padding: 71px 0 0 0;
+        min-width: 668px;
+        max-width: 870px;
         display: flex;
         gap: 39px;
 	}
@@ -15,7 +14,8 @@
 
 @media screen and (min-width: 1280px) {
 	.about-project__content-block {
-        display: flex;
-        gap: 100px;
+                min-width: 1140px;
+                max-width: 1440px;
+                gap: 100px
 	}
 }

@@ -21,12 +21,10 @@ function App() {
     setMenuOpen(!isMenuOpen);
   }
   
-  
-
   return (
     <div className="page">
       <AppContext.Provider value={{ isMenuOpen, handleOpenMenu, isLogin }}>
-          <MobileMenu />      
+          <MobileMenu />   
           <Routes>
             <Route path="/" element={ <Main /> } />
             <Route path={urls.signup} element={ <Register /> } />

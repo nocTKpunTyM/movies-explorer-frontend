@@ -10,6 +10,7 @@ function Login() {
   return (
     <>
     <Header />
+    <main>
     <AuthForm
       title="Рады видеть!"
       submitText="Войти"
@@ -21,6 +22,7 @@ function Login() {
           className="auth-form__input"
           minLength="2"
           value={values.email || ''} onChange={handleChange}
+          placeholder='Введите свой E-mail'
           required
         />
         {!isValid && (
@@ -36,6 +38,7 @@ function Login() {
           className="auth-form__input"
           minLength="2" maxLength="200"
           value={values.password || ''} onChange={handleChange}
+          placeholder='Введите свой пароль'
           required
         />
         {!isValid && (
@@ -46,6 +49,7 @@ function Login() {
       </div>
     </AuthForm>
     <p className='reg-text'>Еще не зарегистрированы? <Link to={urls.signup} className='reg-link'>Регистрация</Link></p>
+    </main>
     </>
   )
 }

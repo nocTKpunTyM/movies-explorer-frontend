@@ -10,6 +10,7 @@ function Register() {
   return (
     <>
     <Header />
+    <main>
     <AuthForm
       title="Добро пожаловать!"
       submitText="Зарегистрироваться"
@@ -20,6 +21,7 @@ function Register() {
           name="name" type="text"
           minLength="2" maxLength="22"
           value={values.name || ''} onChange={handleChange}
+          placeholder='Виталий'
           required
         />
         {!isValid && (
@@ -35,6 +37,7 @@ function Register() {
           className="auth-form__input"
           minLength="2"
           value={values.email || ''} onChange={handleChange}
+          placeholder='pochta@yandex.ru'
           required
         />
         {!isValid && (
@@ -50,6 +53,7 @@ function Register() {
           className="auth-form__input"
           minLength="2" maxLength="200"
           value={values.password || ''} onChange={handleChange}
+          placeholder='&bull;&bull;&bull;&bull;&bull;&bull;'
           required
         />
         {!isValid && (
@@ -60,6 +64,7 @@ function Register() {
       </div>
     </AuthForm>
     <p className='reg-text'>Уже зарегистрированы? <Link to={urls.signin} className='reg-link'>Войти</Link></p>
+    </main>
     </>
   )
 }

@@ -1,4 +1,5 @@
 .header-menu__button_white {
     background: none;
     background-image: url(../../../../../images/burger-white.svg);
+    background-size: cover;
 }

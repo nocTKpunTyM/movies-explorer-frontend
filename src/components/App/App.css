@@ -4,6 +4,7 @@ html {
 
 .page {
 	margin: auto;
+	width: 100%;
     min-height: 100vh;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
 	display: flex;

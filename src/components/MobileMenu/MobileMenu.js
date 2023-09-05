@@ -14,7 +14,7 @@ function MobileMenu() {
       <div className='mobile-menu__btn-close-box'>
             <button className='mobile-menu__btn-close' onClick={handleOpenMenu} type='button'></button>
         </div>
-        <div className='mobile-menu__nav-box'>
+        <nav className='mobile-menu__nav-box'>
             <ul className='mobile-menu__nav'>
               <li className='mobile-menu__nav-row' onClick={handleOpenMenu}>
                 <NavLink to='/' className={({isActive}) => 
@@ -35,7 +35,7 @@ function MobileMenu() {
                 </NavLink>
               </li>
             </ul>
-        </div>
+        </nav>
         <div className='mobile-menu__btn-profile-box'>
           <ProfileButton handleOpenMenu={handleOpenMenu}/>
         </div>

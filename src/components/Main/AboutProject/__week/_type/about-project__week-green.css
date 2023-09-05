@@ -7,14 +7,13 @@
 
 @media screen and (min-width: 768px) {
 	.about-project__week-green {
-        width: 18%;
-        min-width: 140px;
+        width: 140px;
         height: 36px;
 	}
 }
 
 @media screen and (min-width: 1280px) {
 	.about-project__week-green {
-        min-width: 228px;
+        width: 228px;
 	}
 }

@@ -1,4 +1,5 @@
 @import url(./__title/about-project__title.css);
+@import url(./__content/about-project__content.css);
 @import url(./__content-block/about-project__content-block.css);
 @import url(./__text-block/about-project__text-block.css);
 @import url(./__sub-title/about-project__sub-title.css);
@@ -18,6 +19,8 @@
         width: 87%;
         min-width: 668px;
         padding: 91px 0 69px 0;
+        display: flex;
+        flex-direction: column;
 	}
 }
 

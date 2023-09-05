@@ -25,7 +25,7 @@ function HeaderMenu({isLand}) {
 
   const loginDescMenu = () => {
     return (
-      <div className='header-menu'>
+      <div className='header-menu header-menu_profile'>
             < ProfileButton isLand={isLand} />
       </div>
     )
@@ -47,8 +47,8 @@ function HeaderMenu({isLand}) {
   const notLoginMenu = () => {
     return (
       <div className='header-menu header-menu_two-buttons'>
-        <Link to={urls.signup} className='header-menu__button header-menu__button_reg'>Регистрация</Link>
-        <Link to={urls.signin}><button className='header-menu__button_login' type='button'>Войти</button></Link>
+        <Link to={urls.signup} className='header-menu__button-reg'>Регистрация</Link>
+        <Link to={urls.signin} className='header-menu__button-login'>Войти</Link>
       </div>
     )
   }

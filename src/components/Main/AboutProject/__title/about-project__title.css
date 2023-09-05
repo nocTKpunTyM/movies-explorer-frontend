@@ -1,13 +1,15 @@
 .about-project__title {
     margin: 0;
-    padding: 0;
+    padding: 0 0 26px 0;
     font-size: 18px;
     font-weight: 400;
     letter-spacing: -0.72px;
+    border-bottom: 1px solid black;
 }
 
 @media screen and (min-width: 768px) {
 	.about-project__title {
+        padding: 0 0 22px 0;
         font-size: 22px;
         letter-spacing: -0.88px;
 	}

@@ -8,14 +8,13 @@
 
 @media screen and (min-width: 768px) {
 	.about-project__week-front {
-        width: 78%;
-        min-width: 528px;
+        width: 528px;
         height: 46px;
 	}
 }
 
 @media screen and (min-width: 1280px) {
 	.about-project__week-front {
-        min-width: 912px;
+        width: 912px;
 	}
 }
