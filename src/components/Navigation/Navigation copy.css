@@ -1,18 +1,18 @@
 .navigation {
     flex-grow: 2;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 1280px) {
 	.navigation {
-		display: none;
+		display: flex;
 	}
 }
 
 .navigation__ul {
-    margin: 0 0 0 64px;
+    margin: 0;
     padding: 0;
     list-style: none;
     display: flex;

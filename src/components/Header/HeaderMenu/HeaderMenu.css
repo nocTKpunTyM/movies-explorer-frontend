@@ -1,55 +1,18 @@
-@import url(./__button/header-menu__button.css);
-@import url(./__button-reg/header-menu__button-reg.css);
-@import url(./__button-login/header-menu__button-login.css);
+@import url(./menu-burger/menu-burger.css);
+@import url(./menu-desktop/menu-desktop.css);
+@import url(./menu-two-buttons/menu-two-buttons.css);
 
 .header-menu {
-    margin: 17px 15px 0 0;
-    width: 38px;
-    height: 38px;
+    display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
 	.header-menu {
 		margin: 11px 28px 0 0;
         width: 48px;
         height: 48px;
+        display: block;
 	}
-}
-
-@media screen and (min-width: 1280px) {
-	.header-menu {
-		margin: 20px 56px 0 0;
-        width: 128px;
-        height: 40px;
-	}
-}
-
-.header-menu_type_disable {
-    display: none;
-}
-
-
-.header-menu_two-buttons {
-    width: 131px;
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-@media screen and (min-width: 768px) {
-	.header-menu_two-buttons {
-        padding: 8px 2px 0 0;
-        width: 182px;
-        height: 34px;
-        display: flex;
-    }
-}
-
-@media screen and (min-width: 1280px) {
-	.header-menu_two-buttons {
-        padding: 0 14px 0 0;
-    }
 }
 
 @media screen and (min-width: 768px) {

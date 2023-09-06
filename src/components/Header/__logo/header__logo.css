@@ -1,20 +1,8 @@
 .header__logo {
-	margin: 18px 0 0 14px;
+	margin: 18px 0 0 0;
     max-width: 38px;
 	max-height: 38px;
     transition: opacity 0.2s linear;
-}
-
-@media screen and (min-width: 768px) {
-	.header__logo {
-		margin: 18px 0 0 30px;
-	}
-}
-
-@media screen and (min-width: 1280px) {
-	.header__logo {
-		margin: 18px 78px 0 70px;
-	}
 }
 
 .header__logo:hover {

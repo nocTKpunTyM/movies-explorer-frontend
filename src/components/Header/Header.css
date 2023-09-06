@@ -1,11 +1,11 @@
+@import url(./__box/header__box.css);
 @import url(./__logo/header__logo.css);
-@import url(./__menu/header__menu.css);
 
 .header {
 	width: 100%;
 	height: 74px;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 }
 
 .header_type_land {

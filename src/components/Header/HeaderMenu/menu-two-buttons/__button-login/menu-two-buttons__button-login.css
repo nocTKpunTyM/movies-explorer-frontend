@@ -1,8 +1,8 @@
-.header-menu__button-login {
+.menu-two-buttons__button-login {
     margin: 0;
     padding: 5px 0 0 0;
     display: block;
-    width: 53px;
+    width: 54px;
     height: 21px;
     border-radius: 3px;
     border: none;
@@ -17,7 +17,7 @@
 }
 
 @media screen and (min-width: 768px) {
-	.header-menu__button-login {
+	.menu-two-buttons__button-login {
         margin: 1px 0 0 0;
         padding: 8px 0 0 0;
         width: 76px;
@@ -26,7 +26,7 @@
 	}
 }
 
-.header-menu__button-login:hover {
+.menu-two-buttons__button-login:hover {
     cursor: pointer;
     opacity: 70%;
 }

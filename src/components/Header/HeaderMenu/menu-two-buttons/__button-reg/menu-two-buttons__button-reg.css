@@ -1,4 +1,4 @@
-.header-menu__button-reg {
+.menu-two-buttons__button-reg {
     margin: 0;
     display: block;
     font-size: 10px;
@@ -10,12 +10,12 @@
 }
 
 @media screen and (min-width: 768px) {
-	.header-menu__button-reg {
+	.menu-two-buttons__button-reg {
         font-size: 12px;
     }
 }
 
-.header-menu__button-reg:hover {
+.menu-two-buttons__button-reg:hover {
     cursor: pointer;
     opacity: 70%;
 }

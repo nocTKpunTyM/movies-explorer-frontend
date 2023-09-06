@@ -23,11 +23,13 @@ function Header() {
   let needHeaderMenu = true;
   let logoClass = 'header__logo';
   let headerClass = 'header';
+  let headerBoxClass = 'header__box';
 
   if (path === urls.signin || path === urls.signup) {
     headerClass = 'header-auth';
     logoClass = 'header-auth__logo';
     needHeaderMenu = false;
+    headerBoxClass = 'header-auth__box';
   }
   else {
     if (path === '/') {
@@ -37,9 +39,11 @@ function Header() {
 
   return (
     <header className={headerClass}>
-      <Link to="/" className={logoClass} onClick={displaySubmit}><img src={headerLogo} alt="На главную" /></Link>
-      {needHeaderMenu & isLogin ? <Navigation isLand={isLand} /> : ''}
-      {needHeaderMenu ? <HeaderMenu isLand={isLand}/> : ''}
+      <div className={headerBoxClass}>
+        <Link to="/" className={logoClass} onClick={displaySubmit}><img src={headerLogo} alt="На главную" /></Link>
+        {needHeaderMenu & isLogin ? <Navigation isLand={isLand} /> : ''}
+        {needHeaderMenu ? <HeaderMenu isLand={isLand}/> : ''}
+      </div>
     </header>
   );
 }

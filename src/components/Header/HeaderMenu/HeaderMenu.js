@@ -11,44 +11,32 @@ function HeaderMenu({isLand}) {
 
   const displayMenu = () => {
     if(isLogin) {
-      if (window.innerWidth > 1279) {
-          return loginDescMenu();
+          return loginMenu();
       } else {
-          return loginMobileMenu();
-      }
-    }
-    if (isLand) {
       return notLoginMenu();
     }
-    return '';
   }
 
-  const loginDescMenu = () => {
+  const loginMenu = () => {
     return (
-      <div className='header-menu header-menu_profile'>
+      <>
+        <div className='menu-desktop'>
             < ProfileButton isLand={isLand} />
-      </div>
-    )
-  }
-
-  const loginMobileMenu = () => {
-    return (
-      <div className='header-menu'>
+        </div>
         <button
-          className={`header-menu__button${isLand ? ' header-menu__button_white' : ' header-menu__button_black'}`}
+          className={`menu-burger ${isLand ? 'menu-burger_white' : 'menu-burger_black'}`}
           onClick={handleOpenMenu}
           type='button'>
         </button>
-      </div>
-      
+      </>
     )
   }
 
   const notLoginMenu = () => {
     return (
-      <div className='header-menu header-menu_two-buttons'>
-        <Link to={urls.signup} className='header-menu__button-reg'>Регистрация</Link>
-        <Link to={urls.signin} className='header-menu__button-login'>Войти</Link>
+      <div className='menu-two-buttons'>
+        <Link to={urls.signup} className='menu-two-buttons__button-reg'>Регистрация</Link>
+        <Link to={urls.signin} className='menu-two-buttons__button-login'>Войти</Link>
       </div>
     )
   }
