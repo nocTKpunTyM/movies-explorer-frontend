@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-import { urls } from '../../utils/constants';
 import './AuthForm.css';
 
 function AuthForm({ name, title, submitText, isValid, onSubmit, children }) {
@@ -10,7 +8,7 @@ function AuthForm({ name, title, submitText, isValid, onSubmit, children }) {
                     <div className="auth-form__inputs">
                         {children}
                     </div>
-                    <Link to={urls.movies} className='auth-form__submit'>{submitText}</Link>
+                    <button type='submit' className='auth-form__submit'>{submitText}</button>
                 </form>
             </section>
     );

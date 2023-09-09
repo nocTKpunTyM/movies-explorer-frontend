@@ -5,12 +5,12 @@ import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Header from '../Header/Header';
 
 
-function Movies() {
+function Movies({toGetMovies}) {
   return (
     <>
         <Header />
         <main className="movies">
-            <SearchForm />
+            <SearchForm toGetMovies={toGetMovies}/>
             <MoviesCardList />
             <div className='movies__button-box'>
                 <button className='movies__button' type='button'>Ещё</button>

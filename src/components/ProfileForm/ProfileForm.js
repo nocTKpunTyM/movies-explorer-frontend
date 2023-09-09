@@ -8,7 +8,9 @@ function ProfileForm({
                 submitText,
                 isValid,
                 onSubmit,
-                children }) {
+                children,
+                handleLogout }) {
+
     const [isSubmitVisible, setSubmitVisible] = useState(false);
     const displaySubmit = () => {
         setSubmitVisible(!isSubmitVisible);
@@ -31,7 +33,7 @@ function ProfileForm({
                     {submitText}
             </button>
             {!isSubmitVisible ? <button className='profile-form__save-link' onClick={displaySubmit} type='button'>Редактировать</button> : ''}
-            {!isSubmitVisible ? <Link to={urls.signup} className='profile-form__bottom-link'>Выйти из аккаунта</Link> : ''}
+            {!isSubmitVisible ? <Link to={urls.signup} className='profile-form__bottom-link' onClick={handleLogout}>Выйти из аккаунта</Link> : ''}
             </div>
         </form>
     );

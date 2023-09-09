@@ -4,8 +4,14 @@ import { Link } from 'react-router-dom';
 import { urls } from '../../utils/constants';
 import Header from '../Header/Header';
 
-function Login() {
+function Login({handleLogin}) {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, password } = values;
+    handleLogin({ email, password });
+  }
 
   return (
     <>
@@ -14,6 +20,7 @@ function Login() {
     <AuthForm
       title="Рады видеть!"
       submitText="Войти"
+      onSubmit={handleSubmit}
     >
       <div className="auth-form__input-block">
         <label className="auth-form__label">E-mail</label>

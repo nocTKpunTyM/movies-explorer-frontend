@@ -1,9 +1,14 @@
 import './Profile.css';
 import ProfileForm from '../ProfileForm/ProfileForm';
 import Header from '../Header/Header';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 
-function Profile() {
+function Profile({handleLogout}) {
+  const user = useContext(CurrentUserContext);
+  const { handleChange } = useFormAndValidation();
+
   const [isSubmitVisible, setSubmitVisible] = useState(false);
   const displaySubmit = () => {
     setSubmitVisible(!isSubmitVisible);
@@ -22,6 +27,7 @@ function Profile() {
         submitText="Сохранить"
         isSubmitVisible={isSubmitVisible}
         displaySubmit={displaySubmit}
+        handleLogout={handleLogout}
       >
       <div className="profile-form__input-block">
         <label className="profile-form__label">Имя</label>
@@ -30,7 +36,9 @@ function Profile() {
           className="profile-form__input"
           minLength="2" maxLength="22"
           required
-          placeholder="Виталий"
+          placeholder="Введите имя"
+          value={user.name}
+          onChange={handleChange}
         />    
       </div>
       <div className="profile-form__input-block">
@@ -40,7 +48,9 @@ function Profile() {
           className="profile-form__input"
           minLength="2"
           required
-          placeholder="pochta@yandex.ru"
+          placeholder="Введите почту"
+          value={user.email}
+          onChange={handleChange}
         />
       </div>
     </ProfileForm>

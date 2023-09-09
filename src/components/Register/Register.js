@@ -1,19 +1,28 @@
 import AuthForm from '../AuthForm/AuthForm';
+// import { useEffect } from 'react';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { Link } from 'react-router-dom';
 import { urls } from '../../utils/constants';
 import Header from '../Header/Header';
 
-function Register() {
+function Register({ handleRegister }) {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, password } = values;
+    handleRegister({ name, email, password });
+  }
 
   return (
     <>
     <Header />
     <main>
     <AuthForm
+      name="register"
       title="Добро пожаловать!"
       submitText="Зарегистрироваться"
+      onSubmit={handleSubmit}
     >
       <div className="auth-form__input-block">
         <label className="auth-form__label">Имя</label>

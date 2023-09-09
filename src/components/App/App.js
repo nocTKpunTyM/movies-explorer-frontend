@@ -1,8 +1,11 @@
 import './App.css';
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { AppContext } from '../../contexts/AppContext';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { urls } from '../../utils/constants';
+import * as auth from '../../utils/mainApi';
+import { getMovies } from '../../utils/MoviesApi';
 
 import NotFound from '../NotFound/NotFound';
 import Register from '../Register/Register';
@@ -14,7 +17,63 @@ import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 
 function App() {
-  const isLogin = true; // МОЖНО ПОМЕНЯТЬ НА false ТОГДА НА ГЛАВНОЙ ПОМЕНЯЕТСЯ ШАПКА
+  const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState({});
+  const [isLogin, setLogin] = useState(false);
+  const [movies, setMovies] = useState({});
+
+  const handleLogout = () => {
+    setCurrentUser('');
+    setLogin(false);
+  }
+  const tokenCheck = () => {
+    const token = localStorage.getItem('token');      
+    if (token) {  
+      auth.getContent(token)
+        .then((user) => {       
+          setCurrentUser(user);
+          setLogin(true);
+        })
+        .catch(console.error)
+    }
+    else {
+      setLogin(false);
+    }
+  }
+  
+  useEffect(() => {
+    tokenCheck();
+  }, [])
+
+
+  function toAuthRegister({ name, email, password }) {
+    auth.register({ name, email, password })
+      .then(() => {
+        navigate('/signin', { replace: true });
+      })
+      .catch(console.error);
+  }
+
+  function toAuthLogin({ email, password }) {
+    auth.authorize({ email, password })
+      .then((data) => {
+        if (data.token) {
+          localStorage.setItem('token', data.token);
+          setLogin(true);
+          tokenCheck();
+          navigate('/movies');
+        }
+      })
+      .catch(console.error);
+  }
+
+  function toGetMovies({ name, email, password }) {
+    getMovies()
+      .then((res) => { 
+        setMovies(res);
+      })
+      .catch(console.error);
+  }
 
   const [isMenuOpen, setMenuOpen] = useState(false);
   function handleOpenMenu () {
@@ -23,17 +82,19 @@ function App() {
   
   return (
     <div className="page">
-      <AppContext.Provider value={{ isMenuOpen, handleOpenMenu, isLogin }}>
+      <AppContext.Provider value={{ isMenuOpen, handleOpenMenu, isLogin, movies }}>
+        <CurrentUserContext.Provider value={currentUser}>
           <MobileMenu />   
           <Routes>
             <Route path="/" element={ <Main /> } />
-            <Route path={urls.signup} element={ <Register /> } />
-            <Route path={urls.signin} element={ <Login /> } />
-            <Route path={urls.profile} element={ <Profile /> } />
-            <Route path={urls.movies} element={ <Movies /> } />
+            <Route path={urls.signup} element={ <Register handleRegister={toAuthRegister} /> } />
+            <Route path={urls.signin} element={ <Login handleLogin={toAuthLogin} /> } />
+            <Route path={urls.profile} element={ <Profile handleLogout={handleLogout}/> } />
+              <Route path={urls.movies} element={ <Movies toGetMovies={toGetMovies} /> } />
             <Route path={urls.savedMovies} element={ <SavedMovies /> } />
             <Route path="*" element={ <NotFound /> } />
           </Routes>
+        </CurrentUserContext.Provider>
       </AppContext.Provider>
     </div>
   )
