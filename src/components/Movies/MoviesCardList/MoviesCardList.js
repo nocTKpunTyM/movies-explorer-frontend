@@ -1,18 +1,16 @@
 import MoviesCard from '../MoviesCard/MoviesCard';
 import './MoviesCardList.css';
-import { AppContext } from '../../../contexts/AppContext';
-import {useContext} from 'react';
 
-function MoviesCardList() {
-    const {movies} = useContext(AppContext);
-    console.log(movies);
+function MoviesCardList({movies, toChangePreference}) {
     return (
         <section className='movies-cardlist'>
             <ul className='movies-cardlist__box'>
                 {Object.entries(movies).length !== 0 ? movies.map((movie) => {
                     return (
                     <MoviesCard
+                        key={movie.movieId}
                         movie={movie}
+                        toChangePreference={toChangePreference}
                     />
                     );
                 }) : ''}
