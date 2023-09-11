@@ -18,9 +18,15 @@ function MoviesCard({movie, toChangePreference}) {
     const delClassForLike = 'movies-card__like movies-card__like_delete';
 
     function handleChangePreference() {
-        toChangePreference(movie);
         changeLike();
+        toChangePreference(movie);
     }
+
+    let duration = movie.duration;
+    const durH = Math.floor(duration / 60);
+    const durM = duration % 60;
+    duration = `${durH}ч ${durM}м`;
+
 
     return (
         <>  
@@ -35,7 +41,7 @@ function MoviesCard({movie, toChangePreference}) {
                     ></button>
                 </div>
                 <div className='movies-card__time-box'>
-                    <p className='movies-card__time'>1ч42м</p>
+                    <p className='movies-card__time'>{duration}</p>
                 </div>
             </li>
         </>

@@ -13,12 +13,16 @@ function SavedMovies() {
     toGetSavedMovies();
   }, [])
 
+  function handelDeleteMovie (movies) {
+    toDeleteMovie(movies);
+  }
+
   return (
     <>
         <Header />
         <main className="saved-movies">
             <SearchForm />
-            <MoviesCardList movies={savedMovies} toChangePreference={toDeleteMovie}/>
+            <MoviesCardList movies={savedMovies} toChangePreference={handelDeleteMovie}/>
         </main>
         <Footer />
     </>
