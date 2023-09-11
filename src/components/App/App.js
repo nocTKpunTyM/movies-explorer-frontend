@@ -105,7 +105,8 @@ function App() {
           };
         })
         setMovies(moviesFromApi);
-        localStorage.setItem('movies', moviesFromApi);
+        console.log('ПОЛУЧИЛ 100 ФИЛЬМОВ ИЗ АПИ');
+        localStorage.setItem('movies', JSON.stringify(moviesFromApi));
       })
       .catch(console.error);
   }
@@ -115,6 +116,7 @@ function toGetSavedMovies() {
   mainApi.getSavedMovies(token)
     .then((data) => {
       setSavedMovies(data);
+      console.log(`ПОЛУЧИЛ СОХРАНЕННЫЕ ИЗ БД - ${Object.keys(savedMovies).length}`);
     })
     .catch(console.error);
 }

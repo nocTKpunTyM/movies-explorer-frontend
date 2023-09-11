@@ -2,18 +2,13 @@ import FilterCheckbox from './FilterCheckbox/FilterCheckbox';
 import './SearchForm.css';
 import {useContext, useEffect, useState} from 'react';
 
-function SearchForm({toGetMovies}) {
-    const [query, setQuery] = useState('');
+function SearchForm({movieQuery, changeQuery}) {
 
     function toMakeQuery () {
-        setQuery('Роллинг Стоунз');
+        changeQuery('cIty');
+        console.log('city');
     }
 
-    useEffect(() => {
-        if (query) {
-            toGetMovies();
-        } 
-      }, [query])
 
     return (
         <form className='search-form'>
