@@ -38,7 +38,7 @@ function SavedMovies() {
       }
     });
       setSavedMoviesToRender(moviesToFilter);
-      console.log(`moviesToFilter - ${Object.keys(moviesToFilter).length}`);
+      //console.log(`moviesToFilter - ${Object.keys(moviesToFilter).length}`);
   }, [savedMovies, savedMovieQuery, savedSwitchOn])
 
   function savedChangeQuery (query) {
@@ -46,7 +46,12 @@ function SavedMovies() {
     isSaveFilter && localStorage.setItem('savedMovieQuery', query);
   }
 
-
+  function compareSavedQuery(query, mQuery) {
+    if (query !== mQuery) {
+      //console.log('Ползунок заменил запрос');
+      savedChangeQuery(query); 
+    }
+  }
 
 
   function handelDeleteMovie (movies) {
@@ -57,7 +62,12 @@ function SavedMovies() {
     <>
       <Header />
       <main className="saved-movies">
-          <SearchForm savedSwitchOn={savedSwitchOn} setSavedSwitchOn={setSavedSwitchOn} savedChangeQuery={savedChangeQuery}/>
+          <SearchForm
+            savedSwitchOn={savedSwitchOn}
+            setSavedSwitchOn={setSavedSwitchOn}
+            savedChangeQuery={savedChangeQuery}
+            savedMovieQuery={savedMovieQuery}
+            compareQuery={compareSavedQuery}/>
           <MoviesCardList movies={savedMoviesToRender} toChangePreference={handelDeleteMovie}/>
       </main>
       <Footer />

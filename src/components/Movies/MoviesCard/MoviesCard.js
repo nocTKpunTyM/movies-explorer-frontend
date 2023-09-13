@@ -31,7 +31,9 @@ function MoviesCard({movie, toChangePreference}) {
     return (
         <>  
             <li className='movies-card'>
-                <img src={movie.image} alt={movie.nameRU} className='movies-card__img'></img>
+                <a href={movie.trailerLink} target="_blank" rel="noreferrer" className='movies-card__img'>
+                    <img src={movie.image} alt={movie.nameRU} className='movies-card__img'></img>
+                </a>
                 <div className='movies-card__text-box'>
                     <p className='movies-card__name'>{movie.nameRU}</p>
                     <button

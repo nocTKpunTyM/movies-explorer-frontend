@@ -4,23 +4,24 @@ import { Link } from 'react-router-dom';
 import { urls } from '../../utils/constants';
 
 function ProfileForm({
-                name,
-                submitText,
                 isValid,
-                onSubmit,
+                submitText,
                 children,
-                handleLogout }) {
+                handleLogout,
+                setReadOnly,
+                onSubmit}) {
 
     const [isSubmitVisible, setSubmitVisible] = useState(false);
     const displaySubmit = () => {
         setSubmitVisible(!isSubmitVisible);
+        setReadOnly(false);
     }
     useEffect(() => {
         setSubmitVisible(false);
     }, [])
                
     return (
-        <form name={name} className="profile-form" onSubmit={onSubmit} noValidate>
+        <form name="profile-form" className="profile-form" onSubmit={onSubmit} noValidate>
             <div className="profile-form__inputs">
                 {children}
             </div>
@@ -33,7 +34,7 @@ function ProfileForm({
                     {submitText}
             </button>
             {!isSubmitVisible ? <button className='profile-form__save-link' onClick={displaySubmit} type='button'>Редактировать</button> : ''}
-            {!isSubmitVisible ? <Link to={urls.signup} className='profile-form__bottom-link' onClick={handleLogout}>Выйти из аккаунта</Link> : ''}
+            {!isSubmitVisible ? <Link to='/' className='profile-form__bottom-link' onClick={handleLogout}>Выйти из аккаунта</Link> : ''}
             </div>
         </form>
     );

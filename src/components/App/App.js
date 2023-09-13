@@ -26,6 +26,7 @@ function App() {
   const handleLogout = () => {
     setCurrentUser('');
     setLogin(false);
+    localStorage.clear();
   }
   
   const tokenCheck = () => {     
@@ -44,13 +45,13 @@ function App() {
   
   useEffect(() => {
     tokenCheck();
-  }, [])
+  }, [isLogin])
 
 
   function toAuthRegister({ name, email, password }) {
     mainApi.register({ name, email, password })
       .then(() => {
-        navigate('/signin', { replace: true });
+        navigate(urls.movies, { replace: true });
       })
       .catch(console.error);
   }
@@ -61,11 +62,16 @@ function App() {
         if (data.token) {
           localStorage.setItem('token', data.token);
           setLogin(true);
-          tokenCheck();
-          navigate('/movies');
+          navigate(urls.movies);
         }
       })
       .catch(console.error);
+  }
+
+  function onUpdateUser(name, email) {
+    mainApi.updateUser({ token, name, email })
+    .then(setCurrentUser)
+    .catch(console.error);
   }
 
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -143,7 +149,6 @@ function toDeleteMovie(movie) {
     .catch(console.error);
 }
 
-
   return (
     <div className="page">
       <AppContext.Provider value={{ isMenuOpen, handleOpenMenu, isLogin, currentUser, savedMovies, setSavedMovies, toGetSavedMovies, toSaveMovie, toDeleteMovie }}>
@@ -153,7 +158,7 @@ function toDeleteMovie(movie) {
             <Route path="/" element={ <Main /> } />
             <Route path={urls.signup} element={ <Register handleRegister={toAuthRegister} /> } />
             <Route path={urls.signin} element={ <Login handleLogin={toAuthLogin} /> } />
-            <Route path={urls.profile} element={ <Profile handleLogout={handleLogout}/> } />
+            <Route path={urls.profile} element={ <Profile handleLogout={handleLogout} onUpdateUser={onUpdateUser}/> } />
               <Route path={urls.movies} element={ <Movies toGetMovies={toGetMovies} movies={movies} setMovies={setMovies} toTakeLike={toTakeLike}/> } />
             <Route path={urls.savedMovies} element={ <SavedMovies /> } />
             <Route path="*" element={ <NotFound /> } />

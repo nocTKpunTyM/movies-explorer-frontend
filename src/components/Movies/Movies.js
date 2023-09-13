@@ -15,8 +15,9 @@ function Movies({toGetMovies, movies, setMovies}) {
   const [switchOn, setswitchOn] = useState(localStorage.getItem('switchOn') === 'true' || false);
 
   useEffect(() => {
-    //console.log(`Только монтирование - получение сохраненных ${Object.keys(savedMovies).length}`);
-    toGetSavedMovies();
+    if (Object.keys(savedMovies).length === 0) {
+      toGetSavedMovies();
+    }
   }, [])
 
   useEffect(() => { 
@@ -75,6 +76,13 @@ function Movies({toGetMovies, movies, setMovies}) {
     }
   }
 
+  function compareQuery(query, mQuery) {
+    if (Object.keys(mQuery).length > 0 && query !== mQuery) {
+      //console.log('Ползунок заменил запрос');
+      changeQuery(query); 
+    }
+  }
+
   function saveOrDelMovie (movie) {
     if (movie.isLiked) {
       const myMovieForDel = savedMovies.find((item)=> item.movieId === movie.movieId);
@@ -96,7 +104,8 @@ function Movies({toGetMovies, movies, setMovies}) {
                         setswitchOn={setswitchOn}
                         movieQuery={movieQuery}
                         setMovieQuery={setMovieQuery}
-                        changeQuery={changeQuery} />
+                        changeQuery={changeQuery}
+                        compareQuery={compareQuery} />
             <MoviesCardList movies={moviesReadyToRender} toChangePreference={saveOrDelMovie}/>
         </main>
         <Footer />

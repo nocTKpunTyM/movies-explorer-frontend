@@ -26,6 +26,19 @@ export const authorize = ({ email, password }) => {
         .then(checkResponse);
 };
 
+export const updateUser = ({token, name, email}) => {
+    return fetch(`${BASE_URL}/users/me`, {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ name, email})
+    })
+        .then(checkResponse)
+}
+
 export const getContent = (token) => {
     return fetch(`${BASE_URL}/users/me`, {
         method: 'GET',

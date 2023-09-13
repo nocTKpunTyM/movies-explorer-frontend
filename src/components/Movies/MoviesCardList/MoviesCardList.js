@@ -33,7 +33,7 @@ function MoviesCardList({movies, toChangePreference}) {
     const throttledСhangeScreen = throttle(changeScreen, 1000)
 
     function changeScreen() {
-            console.log('Сработал resize');
+           // console.log('Сработал resize');
         setScreenWidth(window.innerWidth); 
     }
 
@@ -56,41 +56,41 @@ function MoviesCardList({movies, toChangePreference}) {
 
   useEffect(() => {
     if (Object.keys(cards).length > 0) {
-        console.log(`Количество фильмов после всех фильтраций - ${Object.keys(movies).length}`);
-        console.log(`Количество карточек для отображения - ${Object.keys(cards).length}`);
+        //console.log(`Количество фильмов после всех фильтраций - ${Object.keys(movies).length}`);
+        //console.log(`Количество карточек для отображения - ${Object.keys(cards).length}`);
     }
   }, [cards])
 
   useEffect(() => {
     if (thatEnough) {
-        console.log('Кнопка исчезни!');
+        //console.log('Кнопка исчезни!');
     } else {
-        console.log('Кнопка появись!');
+        //console.log('Кнопка появись!');
     }
   }, [thatEnough])
 
   function addCards() {
     if (screenWidth > 1279) {
         setCardsCount(cardsCount + 4);
-        console.log(`Теперь количество отображаемых - ${cardsCount + 4}`);
+        //console.log(`Теперь количество отображаемых - ${cardsCount + 4}`);
     } else if (screenWidth > 767) {
         setCardsCount(cardsCount + 2);
-        console.log(`Теперь количество отображаемых - ${cardsCount + 2}`);
+        //console.log(`Теперь количество отображаемых - ${cardsCount + 2}`);
     } else {
         setCardsCount(cardsCount + 2);
-        console.log(`Теперь количество отображаемых - ${cardsCount + 2}`);
+        //console.log(`Теперь количество отображаемых - ${cardsCount + 2}`);
     }
   }
 
   useEffect(() => {
-    console.log(`СЕЙЧАС КОЛ-ВО ОТОБРАЖАЕМЫХ - ${cardsCount}`);
+    //console.log(`СЕЙЧАС КОЛ-ВО ОТОБРАЖАЕМЫХ - ${cardsCount}`);
     if (cardsCount > 0 && Object.keys(movies).length !==0) {
-        console.log(`Количество фильмов после всех фильтраций - ${Object.keys(movies).length}`);
+       // console.log(`Количество фильмов после всех фильтраций - ${Object.keys(movies).length}`);
         if (cardsCount >= Object.keys(movies).length) {
-            console.log('Количество отображаемых равно или больше количеству отсеянных');
+           // console.log('Количество отображаемых равно или больше количеству отсеянных');
             setThatEnough(true);
         } else {
-            console.log('Количество отображаемых равно МЕНЬШЕ количества отсеянных');
+           // console.log('Количество отображаемых равно МЕНЬШЕ количества отсеянных');
             setThatEnough(false);
         }
     }
