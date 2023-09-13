@@ -74,7 +74,7 @@ function App() {
   }
   
 // ДАЛЕЕ ЗАПРОСЫ ДЛЯ РАБОТЫ С КАРТОЧКАМИ ФИЛЬМОВ
-  const [movies, setMovies] = useState({});
+  const [movies, setMovies] = useState(JSON.parse(localStorage.getItem('movies')) || []);
 
   function toTakeLike (movie) {
     if (Object.keys(savedMovies).length !== 0) {
@@ -105,18 +105,19 @@ function App() {
           };
         })
         setMovies(moviesFromApi);
-        console.log('ПОЛУЧИЛ 100 ФИЛЬМОВ ИЗ АПИ');
+        console.log('ПОЛУЧИЛ 100 ФИЛЬМОВ ИЗ АПИ - АПИ - АПИ - НЕЛЬЗЯ! -НЕЛЬЗЯ!');
         localStorage.setItem('movies', JSON.stringify(moviesFromApi));
       })
       .catch(console.error);
   }
 
-const [savedMovies, setSavedMovies] = useState([]);
+const [savedMovies, setSavedMovies] = useState(JSON.parse(localStorage.getItem('savedMovies')) || []);
 function toGetSavedMovies() {
   mainApi.getSavedMovies(token)
     .then((data) => {
       setSavedMovies(data);
       console.log(`ПОЛУЧИЛ СОХРАНЕННЫЕ ИЗ БД - ${Object.keys(savedMovies).length}`);
+      localStorage.setItem('savedMovies', JSON.stringify(data));
     })
     .catch(console.error);
 }

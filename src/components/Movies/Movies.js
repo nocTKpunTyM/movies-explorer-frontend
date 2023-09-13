@@ -5,21 +5,23 @@ import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Header from '../Header/Header';
 import {useContext, useEffect, useState} from 'react';
 import { AppContext } from '../../contexts/AppContext';
+import { maxDuration } from '../../utils/options';
 
 function Movies({toGetMovies, movies, setMovies}) {
   const {toGetSavedMovies, toSaveMovie, toDeleteMovie, savedMovies} = useContext(AppContext);
   const [moviesForRender, setMoviesForRender] = useState([]);
-  const [movieQuery, setMovieQuery] = useState(localStorage.getItem('movieQuery'));
+  const [movieQuery, setMovieQuery] = useState(localStorage.getItem('movieQuery') || '');
   const [moviesReadyToRender, setMoviesReadyToRender] = useState([]);
+  const [switchOn, setswitchOn] = useState(localStorage.getItem('switchOn') === 'true' || false);
 
   useEffect(() => {
-    console.log(`Только монтирование - получение сохраненных ${Object.keys(savedMovies).length}`);
+    //console.log(`Только монтирование - получение сохраненных ${Object.keys(savedMovies).length}`);
     toGetSavedMovies();
   }, [])
 
   useEffect(() => { 
     if (Object.keys(movies).length !== 0 && Object.keys(savedMovies).length !== 0) {
-        console.log(`movies, savedMovies - выяснение лайков. movies =  ${Object.keys(movies).length} savedMovies = ${Object.keys(savedMovies).length}`);
+        //console.log(`movies, savedMovies - выяснение лайков. movies =  ${Object.keys(movies).length} savedMovies = ${Object.keys(savedMovies).length}`);
         toGetLikes();
     }
   }, [movies, savedMovies])
@@ -33,19 +35,19 @@ function Movies({toGetMovies, movies, setMovies}) {
         }
       }
     }
-    console.log(`Функция. Сравнил два массива и присвоил лайки. movies =  ${Object.keys(movies).length} savedMovies = ${Object.keys(savedMovies).length}`);
+    //console.log(`Функция. Сравнил два массива и присвоил лайки. movies =  ${Object.keys(movies).length} savedMovies = ${Object.keys(savedMovies).length}`);
     setMoviesForRender(movies);
   }
 
   useEffect(() => {
     if (Object.keys(moviesForRender).length !== 0) {
       if (movieQuery) {
-  console.log('moviesForRender - фильтрация по запросу');  
+  //console.log('moviesForRender - фильтрация по запросу');  
         const moviesToFilter = moviesForRender.filter((movie) => {
           const filteredFilm =
             movie.nameRU.toLowerCase().includes(movieQuery.toLowerCase()) || movie.nameEN.toLowerCase().includes(movieQuery.toLowerCase());
-            if (2 > 1) {
-              return filteredFilm && movie.duration <= 104;
+            if (switchOn) {
+              return filteredFilm && movie.duration <= maxDuration;
             } else {
               return filteredFilm;
             }
@@ -55,50 +57,23 @@ function Movies({toGetMovies, movies, setMovies}) {
         setMoviesReadyToRender(moviesForRender);
       }
     }
-  }, [moviesForRender])
-
-
-
+  }, [moviesForRender, switchOn])
 
   function changeQuery (query) {
     setMovieQuery(query);
     localStorage.setItem('movieQuery', query);
-    console.log('Функция. Кладем query в стейт и localStorage');
-  }
-  useEffect(() => {
+    //console.log('Функция. Кладем query в стейт и localStorage');
     if (movieQuery) {
-      console.log(`movieQuery - запрос ${movieQuery}`);
+      //console.log(`movieQuery - запрос ${movieQuery}`);
       if (localStorage.getItem('movies')) {
         setMovies(JSON.parse(localStorage.getItem('movies')));
-        console.log(`movieQuery - есть movies в хранилище - достаем - ${Object.keys(movies).length}`);
+        //console.log(`movieQuery - в хранилище есть movies - достаем - ${Object.keys(movies).length}`);
       } else {
         toGetMovies();
-        console.log(`movieQuery - movies нет в хранилище - пошли в АПИ - ${Object.keys(movies).length}`);
+        //console.log(`movieQuery - movies нет в хранилище - пошли в АПИ - ${Object.keys(movies).length}`);
       }
     }
-  }, [movieQuery])
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  }
 
   function saveOrDelMovie (movie) {
     if (movie.isLiked) {
@@ -117,11 +92,12 @@ function Movies({toGetMovies, movies, setMovies}) {
     <>
         <Header />
         <main className="movies">
-            <SearchForm movieQuery={movieQuery} changeQuery={changeQuery}/>
+            <SearchForm switchOn={switchOn}
+                        setswitchOn={setswitchOn}
+                        movieQuery={movieQuery}
+                        setMovieQuery={setMovieQuery}
+                        changeQuery={changeQuery} />
             <MoviesCardList movies={moviesReadyToRender} toChangePreference={saveOrDelMovie}/>
-            <div className='movies__button-box'>
-                <button className='movies__button' type='button'>Ещё</button>
-            </div>
         </main>
         <Footer />
     </>
