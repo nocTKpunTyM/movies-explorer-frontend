@@ -16,11 +16,13 @@ import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import { getMovies } from '../../utils/MoviesApi';
 import { API_URL_IMG } from '../../utils/constants';
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState({});
   const [isLogin, setLogin] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const token = localStorage.getItem('token');
 
   const handleLogout = () => {
@@ -93,6 +95,7 @@ function App() {
   let isLiked = false;
   let moviesFromApi = {};
   function toGetMovies() {
+    setLoading(true);
     getMovies()
       .then((data) => { 
         moviesFromApi = data.map((movie) => {
@@ -113,21 +116,24 @@ function App() {
           };
         })
         setMovies(moviesFromApi);
-        console.log('ПОЛУЧИЛ 100 ФИЛЬМОВ ИЗ АПИ - АПИ - АПИ - НЕЛЬЗЯ! -НЕЛЬЗЯ!');
+        console.log('ПОЛУЧИЛ 100 ФИЛЬМОВ ИЗ АПИ - АПИ - АПИ - МОЖНО ТОЛЬКО ОДИН РАЗ!');
         localStorage.setItem('movies', JSON.stringify(moviesFromApi));
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => setLoading(false));
   }
 
 const [savedMovies, setSavedMovies] = useState(JSON.parse(localStorage.getItem('savedMovies')) || []);
 function toGetSavedMovies() {
+  setLoading(true);
   mainApi.getSavedMovies(token)
     .then((data) => {
       setSavedMovies(data);
       console.log(`ПОЛУЧИЛ СОХРАНЕННЫЕ ИЗ БД - ${Object.keys(savedMovies).length}`);
       localStorage.setItem('savedMovies', JSON.stringify(data));
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => setLoading(false));
 }
 
 function toSaveMovie(movie) {
@@ -160,16 +166,47 @@ function toDeleteMovie(movie) {
 
   return (
     <div className="page">
-      <AppContext.Provider value={{ isMenuOpen, handleOpenMenu, isLogin, currentUser, savedMovies, setSavedMovies, toGetSavedMovies, toSaveMovie, toDeleteMovie }}>
+      <AppContext.Provider value={{ isMenuOpen,
+                                    handleOpenMenu,
+                                    isLogin,
+                                    currentUser,
+                                    savedMovies,
+                                    setSavedMovies,
+                                    toGetSavedMovies,
+                                    toSaveMovie,
+                                    toDeleteMovie,
+                                    isLoading }}>
         <CurrentUserContext.Provider value={currentUser}>
           <MobileMenu />   
           <Routes>
             <Route path="/" element={ <Main /> } />
             <Route path={URLS.SIGNUP} element={ <Register handleRegister={toAuthRegister} /> } />
             <Route path={URLS.SIGNIN} element={ <Login handleLogin={toAuthLogin} /> } />
-            <Route path={URLS.PROFILE} element={ <Profile handleLogout={handleLogout} onUpdateUser={onUpdateUser}/> } />
-              <Route path={URLS.MOVIES} element={ <Movies toGetMovies={toGetMovies} movies={movies} setMovies={setMovies} toTakeLike={toTakeLike}/> } />
-            <Route path={URLS.SAVEDMOVIES} element={ <SavedMovies /> } />
+
+            <Route path={URLS.PROFILE}
+              element={<ProtectedRoute
+                element={Profile}
+                isLogin={isLogin}
+                handleLogout={handleLogout}
+                onUpdateUser={onUpdateUser}
+              />}
+            />
+            <Route path={URLS.MOVIES}
+              element={<ProtectedRoute
+                element={Movies}
+                isLogin={isLogin}
+                toGetMovies={toGetMovies}
+                movies={movies}
+                setMovies={setMovies}
+                toTakeLike={toTakeLike}
+              />}
+            />
+            <Route path={URLS.SAVEDMOVIES}
+              element={<ProtectedRoute
+                element={SavedMovies}
+                isLogin={isLogin}
+              />}
+            />
             <Route path="*" element={ <NotFound /> } />
           </Routes>
         </CurrentUserContext.Provider>

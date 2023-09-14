@@ -38,7 +38,6 @@ function SavedMovies() {
       }
     });
       setSavedMoviesToRender(moviesToFilter);
-      //console.log(`moviesToFilter - ${Object.keys(moviesToFilter).length}`);
   }, [savedMovies, savedMovieQuery, savedSwitchOn])
 
   function savedChangeQuery (query) {
@@ -48,7 +47,6 @@ function SavedMovies() {
 
   function compareSavedQuery(query, mQuery) {
     if (query !== mQuery) {
-      //console.log('Ползунок заменил запрос');
       savedChangeQuery(query); 
     }
   }

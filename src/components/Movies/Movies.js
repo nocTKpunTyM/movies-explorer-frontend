@@ -15,7 +15,6 @@ function Movies({toGetMovies, movies, setMovies}) {
   const [switchOn, setswitchOn] = useState(localStorage.getItem('switchOn') === 'true' || false);
 
   useEffect(() => {
-    //console.log('Welcome to movies!');
     if (Object.keys(savedMovies).length < 1) {
       toGetSavedMovies();
     }
@@ -23,7 +22,6 @@ function Movies({toGetMovies, movies, setMovies}) {
 
   useEffect(() => { 
     if (Object.keys(movies).length !== 0 && Object.keys(savedMovies).length !== 0) {
-        //console.log(`Выяснение лайков. movies =  ${Object.keys(movies).length} savedMovies = ${Object.keys(savedMovies).length}`);
         toGetLikes();
     } else {
       setMoviesForRender(movies);
@@ -39,15 +37,12 @@ function Movies({toGetMovies, movies, setMovies}) {
         }
       }
     }
-    //console.log(`Сравнил два массива и присвоил лайки. movies =  ${Object.keys(movies).length} savedMovies = ${Object.keys(savedMovies).length}`);
     setMoviesForRender(movies);
   }
 
   useEffect(() => {
-    //console.log(`После присваения лайков moviesForRender - ${Object.keys(moviesForRender).length}`);
     if (Object.keys(moviesForRender).length !== 0) {
       if (movieQuery) {
-  //console.log('moviesForRender - фильтрация по запросу');  
         const moviesToFilter = moviesForRender.filter((movie) => {
           const filteredFilm =
             movie.nameRU.toLowerCase().includes(movieQuery.toLowerCase()) || movie.nameEN.toLowerCase().includes(movieQuery.toLowerCase());
@@ -58,36 +53,25 @@ function Movies({toGetMovies, movies, setMovies}) {
             }
         });
         setMoviesReadyToRender(moviesToFilter);
-        //console.log(`Есть запрос ${movieQuery}, присвоил к рендеру отфильтрованные фильмы` );
       } else {
         setMoviesReadyToRender(moviesForRender);
-        //console.log("Запроса нет, присвоил к рендеру нефильтрованные фильмы" );
       }
-      //console.log(moviesReadyToRender);
     }
   }, [moviesForRender, switchOn, savedMovies])
 
   function changeQuery (query) {
     setMovieQuery(query);
     localStorage.setItem('movieQuery', query);
-    //console.log('Функция. Кладем query в стейт и localStorage');
-    
-      //console.log(`movieQuery - запрос ${movieQuery}`);
       if (localStorage.getItem('movies')) {
         setMovies(JSON.parse(localStorage.getItem('movies')));
-        //console.log(`в хранилище есть movies - достаем - ${Object.keys(movies).length}`);
       } else {
         toGetMovies();
-        //console.log(`movies нет в хранилище - пошли в АПИ - ${Object.keys(movies).length}`);
       }
     
   }
 
   function compareQuery(query, mQuery) {
-    //console.log(query);
-    //console.log(mQuery);
     if (Object.keys(movies).length !== 0 && query !== mQuery) {
-      //console.log('Ползунок заменил запрос');
       changeQuery(query); 
     }
   }
