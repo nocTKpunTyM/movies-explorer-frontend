@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {useContext} from 'react';
 import { AppContext } from '../../../contexts/AppContext';
 
-import { urls } from '../../../utils/constants';
+import { URLS } from '../../../utils/constants';
 
 function HeaderMenu({isLand}) {
   const {handleOpenMenu, isLogin} = useContext(AppContext);
@@ -35,8 +35,8 @@ function HeaderMenu({isLand}) {
   const notLoginMenu = () => {
     return (
       <div className='menu-two-buttons'>
-        <Link to={urls.signup} className='menu-two-buttons__button-reg'>Регистрация</Link>
-        <Link to={urls.signin} className='menu-two-buttons__button-login'>Войти</Link>
+        <Link to={URLS.SIGNUP} className='menu-two-buttons__button-reg'>Регистрация</Link>
+        <Link to={URLS.SIGNIN} className='menu-two-buttons__button-login'>Войти</Link>
       </div>
     )
   }

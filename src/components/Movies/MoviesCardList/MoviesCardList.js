@@ -1,13 +1,13 @@
 import MoviesCard from '../MoviesCard/MoviesCard';
 import './MoviesCardList.css';
 import { useState, useEffect } from 'react';
-import { urls } from "../../../utils/constants";
+import { URLS } from "../../../utils/constants";
 
 function MoviesCardList({movies, toChangePreference}) {
     const [cardsCount, setCardsCount] = useState(0);
     const [cards, setCards] = useState([]);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-    const [thatEnough, setThatEnough] = useState(false);
+    const [thatEnough, setThatEnough] = useState(true);
     const whatPath = window.location.pathname;
 
     useEffect(() => {
@@ -97,7 +97,7 @@ function MoviesCardList({movies, toChangePreference}) {
   }, [cardsCount, movies])
 
   function needButton() {
-    if (whatPath === urls.movies) {
+    if (whatPath === URLS.MOVIES) {
         if (!thatEnough) {
             return (
                 <div className='movies__button-box'>

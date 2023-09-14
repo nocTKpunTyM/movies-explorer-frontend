@@ -1,6 +1,6 @@
 import './Navigation.css';
 import { NavLink } from 'react-router-dom';
-import { urls } from '../../utils/constants';
+import { URLS } from '../../utils/constants';
 
 function Navigation({isLand}) {
   
@@ -10,7 +10,7 @@ function Navigation({isLand}) {
           
             <li className='navigation__line'>
               <NavLink 
-                to={urls.movies}
+                to={URLS.MOVIES}
                 className={({isActive}) => 
                   `navigation__link${isActive ? " navigation__link_active" : ""}${isLand ? ' navigation__link_land' : ''}`}>
                 Фильмы
@@ -19,7 +19,7 @@ function Navigation({isLand}) {
 
             <li className='navigation__line'>
               <NavLink
-                to={urls.savedMovies}
+                to={URLS.SAVEDMOVIES}
                 className={({isActive}) => 
                   `navigation__link${isActive ? " navigation__link_active" : ""}${isLand ? ' navigation__link_land' : ''}`}>
                 Сохраненные фильмы

@@ -2,7 +2,7 @@ import FilterCheckbox from './FilterCheckbox/FilterCheckbox';
 import './SearchForm.css';
 import {useState} from 'react';
 import { isSaveCheckBox } from '../../../utils/options';
-import { urls } from "../../../utils/constants";
+import { URLS } from "../../../utils/constants";
 
 function SearchForm({
     switchOn,
@@ -24,7 +24,7 @@ function SearchForm({
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (moviePath === urls.savedMovies) {
+        if (moviePath === URLS.SAVEDMOVIES) {
             savedChangeQuery(query);
         } else {
             changeQuery(query);
@@ -32,7 +32,7 @@ function SearchForm({
     };
 
     const handleSwitch = (switchNow) => {
-        if (moviePath === urls.movies) {
+        if (moviePath === URLS.MOVIES) {
             //console.log(`В SearchForm пришел switchNow - ${switchNow}`);
             setswitchOn(switchNow);
             localStorage.setItem('switchOn', switchNow);
@@ -56,7 +56,7 @@ function SearchForm({
             </div>
             <div className='search-form__switch-box'>
                 <p className='search-form__switch-text'>Короткометражки</p>
-                <FilterCheckbox switchBox={moviePath === urls.movies ? switchOn : savedSwitchOn} handleSwitch={handleSwitch}/>
+                <FilterCheckbox switchBox={moviePath === URLS.MOVIES ? switchOn : savedSwitchOn} handleSwitch={handleSwitch}/>
             </div>
         </form>
     );

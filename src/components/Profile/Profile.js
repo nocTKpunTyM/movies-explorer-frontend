@@ -24,7 +24,7 @@ function Profile({handleLogout, onUpdateUser}) {
     <Header />
     <main>
     <section className='profile'>
-      <h1 className='profile__title'>Привет, Виталий!</h1>
+      <h1 className='profile__title'>Привет, {values.name}!</h1>
       <ProfileForm
         submitText="Сохранить"
         setReadOnly={setReadOnly}

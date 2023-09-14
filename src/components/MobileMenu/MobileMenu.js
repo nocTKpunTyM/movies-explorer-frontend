@@ -2,7 +2,7 @@ import './MobileMenu.css';
 import {useContext} from 'react';
 import { AppContext } from '../../contexts/AppContext';
 import { NavLink } from 'react-router-dom';
-import { urls } from '../../utils/constants';
+import { URLS } from '../../utils/constants';
 import ProfileButton from '../ProfileButton/ProfileButton';
 
 function MobileMenu() {
@@ -23,13 +23,13 @@ function MobileMenu() {
                 </NavLink>
               </li>
               <li className='mobile-menu__nav-row' onClick={handleOpenMenu}>
-                <NavLink to={urls.movies} className={({isActive}) => 
+                <NavLink to={URLS.MOVIES} className={({isActive}) => 
                   `mobile-menu__nav-link${isActive ? " mobile-menu__nav-link_active" : ""}`}>
                     Фильмы
                 </NavLink>
               </li>
               <li className='mobile-menu__nav-row' onClick={handleOpenMenu}>
-                <NavLink to={urls.savedMovies} className={({isActive}) => 
+                <NavLink to={URLS.SAVEDMOVIES} className={({isActive}) => 
                   `mobile-menu__nav-link${isActive ? " mobile-menu__nav-link_active" : ""}`}>
                     Сохраненные фильмы
                 </NavLink>

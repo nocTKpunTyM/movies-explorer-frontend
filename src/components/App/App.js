@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { AppContext } from '../../contexts/AppContext';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { urls } from '../../utils/constants';
+import { URLS } from '../../utils/constants';
 import * as mainApi from '../../utils/mainApi';
 
 import NotFound from '../NotFound/NotFound';
@@ -27,6 +27,8 @@ function App() {
     setCurrentUser('');
     setLogin(false);
     localStorage.clear();
+    setMovies([]);
+    setSavedMovies([]);
   }
   
   const tokenCheck = () => {     
@@ -51,7 +53,7 @@ function App() {
   function toAuthRegister({ name, email, password }) {
     mainApi.register({ name, email, password })
       .then(() => {
-        navigate(urls.movies, { replace: true });
+        navigate(URLS.MOVIES, { replace: true });
       })
       .catch(console.error);
   }
@@ -62,7 +64,7 @@ function App() {
         if (data.token) {
           localStorage.setItem('token', data.token);
           setLogin(true);
-          navigate(urls.movies);
+          navigate(URLS.MOVIES);
         }
       })
       .catch(console.error);
@@ -133,6 +135,12 @@ function toSaveMovie(movie) {
   mainApi.saveMovie({token, currentUser, movie})
     .then((movie) => {
         setSavedMovies([...savedMovies, movie]);
+        localStorage.setItem('savedMovies', JSON.stringify([...savedMovies, movie]));
+        if (Object.keys(movies).length !== 0) {
+          const movieForlike = movies.find((item)=> item.movieId === movie.movieId);
+          movieForlike.isLiked = true;
+        }
+
     })
     .catch(console.error);
 }
@@ -141,6 +149,7 @@ function toDeleteMovie(movie) {
   mainApi.deleteMovie(token, movie)
     .then(() => {
       setSavedMovies(savedMovies.filter((item) => item._id !== movie._id));
+      localStorage.setItem('savedMovies', JSON.stringify(savedMovies.filter((item) => item._id !== movie._id)));
       if (Object.keys(movies).length !== 0) {
         const movieForDislike = movies.find((item)=> item.movieId === movie.movieId);
         movieForDislike.isLiked = false;
@@ -156,11 +165,11 @@ function toDeleteMovie(movie) {
           <MobileMenu />   
           <Routes>
             <Route path="/" element={ <Main /> } />
-            <Route path={urls.signup} element={ <Register handleRegister={toAuthRegister} /> } />
-            <Route path={urls.signin} element={ <Login handleLogin={toAuthLogin} /> } />
-            <Route path={urls.profile} element={ <Profile handleLogout={handleLogout} onUpdateUser={onUpdateUser}/> } />
-              <Route path={urls.movies} element={ <Movies toGetMovies={toGetMovies} movies={movies} setMovies={setMovies} toTakeLike={toTakeLike}/> } />
-            <Route path={urls.savedMovies} element={ <SavedMovies /> } />
+            <Route path={URLS.SIGNUP} element={ <Register handleRegister={toAuthRegister} /> } />
+            <Route path={URLS.SIGNIN} element={ <Login handleLogin={toAuthLogin} /> } />
+            <Route path={URLS.PROFILE} element={ <Profile handleLogout={handleLogout} onUpdateUser={onUpdateUser}/> } />
+              <Route path={URLS.MOVIES} element={ <Movies toGetMovies={toGetMovies} movies={movies} setMovies={setMovies} toTakeLike={toTakeLike}/> } />
+            <Route path={URLS.SAVEDMOVIES} element={ <SavedMovies /> } />
             <Route path="*" element={ <NotFound /> } />
           </Routes>
         </CurrentUserContext.Provider>

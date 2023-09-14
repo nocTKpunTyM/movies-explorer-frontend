@@ -6,7 +6,7 @@ import HeaderMenu from './HeaderMenu/HeaderMenu';
 import {useState, useEffect, useContext} from 'react';
 import { AppContext } from '../../contexts/AppContext';
 
-import { urls } from '../../utils/constants';
+import { URLS } from '../../utils/constants';
 
 function Header() {
   const path = window.location.pathname;
@@ -25,7 +25,7 @@ function Header() {
   let headerClass = 'header';
   let headerBoxClass = 'header__box';
 
-  if (path === urls.signin || path === urls.signup) {
+  if (path === URLS.SIGNIN || path === URLS.SIGNUP) {
     headerClass = 'header-auth';
     logoClass = 'header-auth__logo';
     needHeaderMenu = false;

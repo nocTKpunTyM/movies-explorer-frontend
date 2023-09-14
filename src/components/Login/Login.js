@@ -1,7 +1,7 @@
 import AuthForm from '../AuthForm/AuthForm';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { Link } from 'react-router-dom';
-import { urls } from '../../utils/constants';
+import { URLS } from '../../utils/constants';
 import Header from '../Header/Header';
 
 function Login({handleLogin}) {
@@ -55,7 +55,7 @@ function Login({handleLogin}) {
         )}
       </div>
     </AuthForm>
-    <p className='reg-text'>Еще не зарегистрированы? <Link to={urls.signup} className='reg-link'>Регистрация</Link></p>
+    <p className='reg-text'>Еще не зарегистрированы? <Link to={URLS.SIGNUP} className='reg-link'>Регистрация</Link></p>
     </main>
     </>
   )

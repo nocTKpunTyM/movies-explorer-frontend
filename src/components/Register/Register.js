@@ -2,7 +2,7 @@ import AuthForm from '../AuthForm/AuthForm';
 // import { useEffect } from 'react';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { Link } from 'react-router-dom';
-import { urls } from '../../utils/constants';
+import { URLS } from '../../utils/constants';
 import Header from '../Header/Header';
 
 function Register({ handleRegister }) {
@@ -72,7 +72,7 @@ function Register({ handleRegister }) {
         )}
       </div>
     </AuthForm>
-    <p className='reg-text'>Уже зарегистрированы? <Link to={urls.signin} className='reg-link'>Войти</Link></p>
+    <p className='reg-text'>Уже зарегистрированы? <Link to={URLS.SIGNIN} className='reg-link'>Войти</Link></p>
     </main>
     </>
   )

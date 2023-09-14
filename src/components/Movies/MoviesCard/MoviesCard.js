@@ -1,24 +1,21 @@
 import './MoviesCard.css';
 import {useState, useEffect } from 'react';
+import { URLS } from '../../../utils/constants';
 
 function MoviesCard({movie, toChangePreference}) {
-    const [isLiked, setLiked] = useState(movie.isLiked);
     const [classNameForLike, setclassNameForLike] = useState('movies-card__like movies-card__like_grey');
-    const changeLike = () => {
-        setLiked(!isLiked);
-    }
+
     useEffect(() => {
-        if (isLiked) {
+        if (movie.isLiked) {
             setclassNameForLike('movies-card__like movies-card__like_red');
         }
         else {
             setclassNameForLike('movies-card__like movies-card__like_grey');
         }
-    }, [isLiked])
+    })
     const delClassForLike = 'movies-card__like movies-card__like_delete';
 
     function handleChangePreference() {
-        changeLike();
         toChangePreference(movie);
     }
 
@@ -26,7 +23,6 @@ function MoviesCard({movie, toChangePreference}) {
     const durH = Math.floor(duration / 60);
     const durM = duration % 60;
     duration = `${durH}ч ${durM}м`;
-
 
     return (
         <>  
@@ -37,7 +33,7 @@ function MoviesCard({movie, toChangePreference}) {
                 <div className='movies-card__text-box'>
                     <p className='movies-card__name'>{movie.nameRU}</p>
                     <button
-                        className={window.location.pathname === '/saved-movies' ? delClassForLike : classNameForLike}
+                        className={window.location.pathname === URLS.SAVEDMOVIES ? delClassForLike : classNameForLike}
                         onClick={handleChangePreference}
                         type='button'
                     ></button>
