@@ -4,8 +4,9 @@ import { useState, useEffect, useContext } from 'react';
 import { URLS } from "../../../utils/constants";
 import Preloader from '../../Preloader/Preloader';
 import { AppContext } from '../../../contexts/AppContext';
+import Feedback from '../../Feedback/Feedback';
 
-function MoviesCardList({movies, toChangePreference}) {
+function MoviesCardList({movies, toChangePreference, needFeedback}) {
     const [cardsCount, setCardsCount] = useState(0);
     const [cards, setCards] = useState([]);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -21,9 +22,7 @@ function MoviesCardList({movies, toChangePreference}) {
     }, []);
 
     function throttle(callee, timeout) {
-        // надо ли нам пропускать текущий вызов.
         let timer = null
-        // Как результат возвращаем другую функцию.
         return function perform(...args) {
             if (timer) return
             timer = setTimeout(() => {
@@ -86,9 +85,10 @@ function MoviesCardList({movies, toChangePreference}) {
         } 
     }
   }
-  
+  console.log(needFeedback);
     return (
         <>
+        {needFeedback &&<Feedback />}
         {isLoading && <Preloader />}
         <section className='movies-cardlist'>
             <ul className='movies-cardlist__box'>

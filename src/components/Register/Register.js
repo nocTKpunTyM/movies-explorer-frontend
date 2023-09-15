@@ -2,7 +2,7 @@ import AuthForm from '../AuthForm/AuthForm';
 // import { useEffect } from 'react';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { Link } from 'react-router-dom';
-import { URLS } from '../../utils/constants';
+import { URLS, PATERN_EMAIL } from '../../utils/constants';
 import Header from '../Header/Header';
 
 function Register({ handleRegister }) {
@@ -13,7 +13,7 @@ function Register({ handleRegister }) {
     const { name, email, password } = values;
     handleRegister({ name, email, password });
   }
-
+  const regForEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   return (
     <>
     <Header />
@@ -23,6 +23,7 @@ function Register({ handleRegister }) {
       title="Добро пожаловать!"
       submitText="Зарегистрироваться"
       onSubmit={handleSubmit}
+      isValid={isValid}
     >
       <div className="auth-form__input-block">
         <label className="auth-form__label">Имя</label>
@@ -30,7 +31,7 @@ function Register({ handleRegister }) {
           name="name" type="text"
           minLength="2" maxLength="22"
           value={values.name || ''} onChange={handleChange}
-          placeholder='Виталий'
+          placeholder='Введите имя'
           required
         />
         {!isValid && (
@@ -44,9 +45,10 @@ function Register({ handleRegister }) {
         <input
           name="email" type="email"
           className="auth-form__input"
-          minLength="2"
+          minLength="5"
           value={values.email || ''} onChange={handleChange}
-          placeholder='pochta@yandex.ru'
+          placeholder='Введите почту'
+          pattern={PATERN_EMAIL}
           required
         />
         {!isValid && (
@@ -60,7 +62,7 @@ function Register({ handleRegister }) {
         <input
           name="password" type="password"
           className="auth-form__input"
-          minLength="2" maxLength="200"
+          minLength="8" maxLength="200"
           value={values.password || ''} onChange={handleChange}
           placeholder='&bull;&bull;&bull;&bull;&bull;&bull;'
           required

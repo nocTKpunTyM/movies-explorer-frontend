@@ -13,6 +13,7 @@ function Movies({toGetMovies, movies, setMovies}) {
   const [movieQuery, setMovieQuery] = useState(localStorage.getItem('movieQuery') || '');
   const [moviesReadyToRender, setMoviesReadyToRender] = useState([]);
   const [switchOn, setswitchOn] = useState(localStorage.getItem('switchOn') === 'true' || false);
+  const [needFeedback, setFeedback] = useState(false);
 
   useEffect(() => {
     if (Object.keys(savedMovies).length < 1) {
@@ -59,6 +60,14 @@ function Movies({toGetMovies, movies, setMovies}) {
     }
   }, [moviesForRender, switchOn, savedMovies])
 
+  useEffect(() => {
+    if (Object.keys(moviesReadyToRender).length === 0) {
+      setFeedback(true);
+    } else {
+      setFeedback(false);
+    }
+  }, [moviesReadyToRender])
+
   function changeQuery (query) {
     setMovieQuery(query);
     localStorage.setItem('movieQuery', query);
@@ -88,18 +97,22 @@ function Movies({toGetMovies, movies, setMovies}) {
       movieForLike.isLiked = true;
     }
   }
-  
+  console.log(needFeedback);
   return (
     <>
         <Header />
         <main className="movies">
-            <SearchForm switchOn={switchOn}
-                        setswitchOn={setswitchOn}
-                        movieQuery={movieQuery}
-                        setMovieQuery={setMovieQuery}
-                        changeQuery={changeQuery}
-                        compareQuery={compareQuery} />
-            <MoviesCardList movies={moviesReadyToRender} toChangePreference={saveOrDelMovie}/>
+            <SearchForm
+              switchOn={switchOn}
+              setswitchOn={setswitchOn}
+              movieQuery={movieQuery}
+              setMovieQuery={setMovieQuery}
+              changeQuery={changeQuery}
+              compareQuery={compareQuery} />
+            <MoviesCardList
+              movies={moviesReadyToRender}
+              toChangePreference={saveOrDelMovie}
+              needFeedback={needFeedback} />
         </main>
         <Footer />
     </>

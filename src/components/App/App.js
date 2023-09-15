@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import { AppContext } from '../../contexts/AppContext';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { URLS } from '../../utils/constants';
@@ -21,16 +21,16 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 function App() {
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState({});
-  const [isLogin, setLogin] = useState(false);
+  const [isLogin, setLogin] = useState(localStorage.getItem('isLogin') || false);
   const [isLoading, setLoading] = useState(false);
   const token = localStorage.getItem('token');
 
   const handleLogout = () => {
     setCurrentUser('');
     setLogin(false);
-    localStorage.clear();
     setMovies([]);
     setSavedMovies([]);
+    localStorage.clear();
   }
   
   const tokenCheck = () => {     
@@ -39,11 +39,9 @@ function App() {
         .then((user) => {       
           setCurrentUser(user);
           setLogin(true);
+          localStorage.setItem('isLogin', true);
         })
         .catch(console.error)
-    }
-    else {
-      setLogin(false);
     }
   }
   
@@ -55,6 +53,11 @@ function App() {
   function toAuthRegister({ name, email, password }) {
     mainApi.register({ name, email, password })
       .then(() => {
+        setLogin(true);
+        localStorage.setItem('isLogin', true);
+      })
+      .then(() => {
+        console.log(isLogin);
         navigate(URLS.MOVIES, { replace: true });
       })
       .catch(console.error);
@@ -66,6 +69,7 @@ function App() {
         if (data.token) {
           localStorage.setItem('token', data.token);
           setLogin(true);
+          localStorage.setItem('isLogin', true);
           navigate(URLS.MOVIES);
         }
       })
@@ -180,8 +184,8 @@ function toDeleteMovie(movie) {
           <MobileMenu />   
           <Routes>
             <Route path="/" element={ <Main /> } />
-            <Route path={URLS.SIGNUP} element={ <Register handleRegister={toAuthRegister} /> } />
-            <Route path={URLS.SIGNIN} element={ <Login handleLogin={toAuthLogin} /> } />
+            <Route path={URLS.SIGNUP} element={ !isLogin ? <Register handleRegister={toAuthRegister}/> : <Navigate to={URLS.MOVIES} replace/> } />
+            <Route path={URLS.SIGNIN} element={ !isLogin ? <Login handleLogin={toAuthLogin}/> : <Navigate to={URLS.MOVIES} replace/> } />
 
             <Route path={URLS.PROFILE}
               element={<ProtectedRoute

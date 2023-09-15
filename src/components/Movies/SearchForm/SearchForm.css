@@ -3,6 +3,8 @@
 @import url(./__button/search-form__button.css);
 @import url(./__switch-box/search-form__switch-box.css);
 @import url(./__switch-text/search-form__switch-text.css);
+@import url(./__inputs-box/search-form__inputs-box.css);
+@import url(./__error/search-form__error.css);
 
 .search-form {
     margin: 84px 0 0 0;

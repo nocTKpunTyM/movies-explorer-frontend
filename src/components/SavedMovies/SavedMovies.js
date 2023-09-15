@@ -12,6 +12,7 @@ function SavedMovies() {
   const [savedSwitchOn, setSavedSwitchOn] = useState(localStorage.getItem('savedSwitchOn') === 'true' || false);
   const [savedMovieQuery, setSavedMovieQuery] = useState(localStorage.getItem('savedMovieQuery') || '');
   const [savedMoviesToRender, setSavedMoviesToRender] = useState([]);
+  const [savedFeedback, setSavedFeedback] = useState(false);
 
   useEffect(() => {
     if (Object.keys(savedMovies).length === 0) {
@@ -40,6 +41,14 @@ function SavedMovies() {
       setSavedMoviesToRender(moviesToFilter);
   }, [savedMovies, savedMovieQuery, savedSwitchOn])
 
+  useEffect(() => {
+    if (Object.keys(savedMoviesToRender).length === 0) {
+      setSavedFeedback(true);
+    } else {
+      setSavedFeedback(false);
+    }
+  }, [savedMoviesToRender])
+
   function savedChangeQuery (query) {
     setSavedMovieQuery(query);
     isSaveFilter && localStorage.setItem('savedMovieQuery', query);
@@ -65,8 +74,11 @@ function SavedMovies() {
             setSavedSwitchOn={setSavedSwitchOn}
             savedChangeQuery={savedChangeQuery}
             savedMovieQuery={savedMovieQuery}
-            compareQuery={compareSavedQuery}/>
-          <MoviesCardList movies={savedMoviesToRender} toChangePreference={handelDeleteMovie}/>
+            compareQuery={compareSavedQuery} />
+          <MoviesCardList
+            movies={savedMoviesToRender}
+            toChangePreference={handelDeleteMovie}
+            needFeedback={savedFeedback} />
       </main>
       <Footer />
     </>

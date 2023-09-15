@@ -6,6 +6,7 @@
 @import url(./__submit/profile-form__submit.css);
 @import url(./__bottom-link/profile-form__bottom-link.css);
 @import url(./__save-link/profile-form__save-link.css);
+@import url(./__feedback/profile-form__feedback.css);
 
 .profile-form {
     margin: 51px 0 0 0;

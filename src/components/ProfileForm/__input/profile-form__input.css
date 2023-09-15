@@ -1,7 +1,7 @@
 .profile-form__input {
     margin: 0;
     padding-bottom: 14px;
-    width: 40%;
+    width: 58%;
     height: 16px;
     border: none;
     font-size: 11px;
@@ -12,4 +12,12 @@
 .profile-form__input:focus {
 	outline: none;
     border-bottom: 1px solid #3456F3;
+}
+
+
+
+@media screen and (min-width: 768px) {
+	.profile-form__input {
+        width: 59%;
+    }
 }

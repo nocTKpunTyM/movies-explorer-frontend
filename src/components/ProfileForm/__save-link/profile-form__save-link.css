@@ -7,15 +7,25 @@
     font-size: 12px;
     color: black;
     background-color: white;
-}
-
-.profile-form__save-link:hover {
-    opacity: 80%;
-    cursor: pointer;
+    transition: opacity 0.2s linear;
+    transition: visibility 0.3s, opacity 0.6s linear;
+    visibility: visible;
+    opacity: 1;
 }
 
 @media screen and (min-width: 768px) {
 	.profile-form__save-link {
         font-size: 13px;
 	}
+}
+
+.profile-form__save-link:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+
+.profile-form__save-link_invisible {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
 }

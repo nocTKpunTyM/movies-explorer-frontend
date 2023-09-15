@@ -1,0 +1,25 @@
+.feedback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 10;
+    padding: 20px;
+}
+
+.feedback__container {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.feedback__text {
+    font-size: 18px;
+    color: rgb(135, 133, 133);
+}
+
+@media screen and (min-width: 768px) {
+	.feedback__text {
+        font-size: 28px;
+	}
+}

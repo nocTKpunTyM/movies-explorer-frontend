@@ -4,7 +4,7 @@
 .movies {
     width: 90%;
     min-width: 300px;
-    min-height: 1770px;
+    min-height: 905px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,7 +13,7 @@
 @media screen and (min-width: 768px) {
 	.movies {
         min-width: 708px;
-        min-height: 1649px;
+        min-height: 1025px;
 	}
 }
 
@@ -21,6 +21,6 @@
 	.movies {
         width: 89%;
         min-width: 1140px;
-        min-height: 1462px;
+        min-height: 721px;
 	}
 }

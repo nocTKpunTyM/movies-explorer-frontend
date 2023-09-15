@@ -4,15 +4,22 @@ import Header from '../Header/Header';
 import { useState, useEffect, useContext } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
+import { PATERN_EMAIL } from '../../utils/constants';
 
 function Profile({handleLogout, onUpdateUser}) {
   const [isReadOnly, setReadOnly] = useState(true);
   const user = useContext(CurrentUserContext);
-  const { values, handleChange, errors, isValid, setValues } = useFormAndValidation();
+  const { values, handleChange, errors, isValid, setValues, setIsValid } = useFormAndValidation();
 
   useEffect(() => {
     setValues(user);
   }, [user]);
+
+  useEffect(() => {
+    if (values.name === user.name && values.email === user.email) {
+      setIsValid(false);
+    }
+  });
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -24,12 +31,14 @@ function Profile({handleLogout, onUpdateUser}) {
     <Header />
     <main>
     <section className='profile'>
-      <h1 className='profile__title'>Привет, {values.name}!</h1>
+      <h1 className='profile__title'>Привет, {user.name}!</h1>
       <ProfileForm
         submitText="Сохранить"
         setReadOnly={setReadOnly}
         handleLogout={handleLogout}
         onSubmit={handleSubmit}
+        isReadOnly={isReadOnly}
+        isValid={isValid}
       >
       <div className="profile-form__input-block">
         <label className="profile-form__label">Имя</label>
@@ -44,7 +53,7 @@ function Profile({handleLogout, onUpdateUser}) {
           readOnly={isReadOnly}
         />
         {!isValid && (
-          <span className="title-input-error form__input-error">
+          <span className="profile-form__error">
             {errors.name}
           </span>
         )}    
@@ -60,9 +69,10 @@ function Profile({handleLogout, onUpdateUser}) {
           value={values.email || ''}
           onChange={handleChange}
           readOnly={isReadOnly}
+          pattern={PATERN_EMAIL}
         />
         {!isValid && (
-          <span className="title-input-error form__input-error">
+          <span className="profile-form__error">
             {errors.email}
           </span>
         )}

@@ -12,4 +12,7 @@ const BASE_URL = 'https://back.noctkpuntym.nomoreparties.co';
 const API_URL = 'https://api.nomoreparties.co/beatfilm-movies';
 const API_URL_IMG = 'https://api.nomoreparties.co';
 
-export { URLS, BASE_URL, API_URL, API_URL_IMG };
+// Патерны для инпутов
+const PATERN_EMAIL = '^[a-zA-Z0-9+_.\\-]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]{2,}$';
+
+export { URLS, BASE_URL, API_URL, API_URL_IMG, PATERN_EMAIL };

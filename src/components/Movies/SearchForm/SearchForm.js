@@ -17,6 +17,7 @@ function SearchForm({
 
     const [moviePath, ] = useState(window.location.pathname);
     const [query, setQuery] = useState(movieQuery || '');
+    const [isEmpty, setEmpty] = useState(false);
 
     const handleInputChange = (event) => {
         setQuery(event.target.value);
@@ -24,24 +25,27 @@ function SearchForm({
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (moviePath === URLS.SAVEDMOVIES) {
-            savedChangeQuery(query);
-        } else {
-            changeQuery(query);
-        } 
+        if (query === '') {
+            setEmpty(true);
+            setTimeout(() => {
+                setEmpty(false);
+            }, 1500);
+        }
+        else {
+            if (moviePath === URLS.SAVEDMOVIES) {
+                savedChangeQuery(query);
+            } else {
+                changeQuery(query);
+            }
+        }
     };
 
     const handleSwitch = (switchNow) => {
         if (moviePath === URLS.MOVIES) {
-            //console.log(`В SearchForm пришел switchNow - ${switchNow}`);
             setswitchOn(switchNow);
             localStorage.setItem('switchOn', switchNow);
-            //console.log(`В локальном хранилище switchOn - ${localStorage.getItem('switchOn')}`);
-            //console.log(`В SearchForm сейчас query - ${query} количество символов - ${Object.keys(query).length}`);
-            //console.log(`В SearchForm сейчас movieQuery - ${movieQuery}`);
             compareQuery(query, movieQuery);
         } else {
-            //console.log(`В SearchForm пришел savedSwitchOn - ${switchNow}`);
             setSavedSwitchOn(switchNow);
             isSaveCheckBox && localStorage.setItem('savedSwitchOn', switchNow);
             compareQuery(query, savedMovieQuery);
@@ -51,8 +55,17 @@ function SearchForm({
     return (
         <form className='search-form' onSubmit={handleSubmit}>
             <div className='search-form__search-box'>
-                <input className='search-form__input' placeholder='Фильм' type='text' value={query} onChange={handleInputChange} required></input>
-                <button className='search-form__button' type='submit'>Найти</button>
+                <div className='search-form__inputs-box'>
+                    <input
+                        className='search-form__input'
+                        placeholder='Фильм'
+                        type='text' value={query}
+                        onChange={handleInputChange}
+                    >
+                    </input>
+                    <span className={`search-form__error ${isEmpty ? ' search-form__error_visible' : ''}`}>Нужно ввести ключевое слово</span>
+                </div>
+                    <button className='search-form__button' type='submit'>Найти</button>
             </div>
             <div className='search-form__switch-box'>
                 <p className='search-form__switch-text'>Короткометражки</p>

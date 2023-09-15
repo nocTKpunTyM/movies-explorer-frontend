@@ -1,7 +1,7 @@
 import AuthForm from '../AuthForm/AuthForm';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { Link } from 'react-router-dom';
-import { URLS } from '../../utils/constants';
+import { URLS, PATERN_EMAIL } from '../../utils/constants';
 import Header from '../Header/Header';
 
 function Login({handleLogin}) {
@@ -21,15 +21,17 @@ function Login({handleLogin}) {
       title="Рады видеть!"
       submitText="Войти"
       onSubmit={handleSubmit}
+      isValid={isValid}
     >
       <div className="auth-form__input-block">
         <label className="auth-form__label">E-mail</label>
         <input
           name="email" type="email"
           className="auth-form__input"
-          minLength="2"
+          minLength="5"
           value={values.email || ''} onChange={handleChange}
           placeholder='Введите свой E-mail'
+          pattern={PATERN_EMAIL}
           required
         />
         {!isValid && (
@@ -43,7 +45,7 @@ function Login({handleLogin}) {
         <input
           name="password" type="password"
           className="auth-form__input"
-          minLength="2" maxLength="200"
+          minLength="8" maxLength="200"
           value={values.password || ''} onChange={handleChange}
           placeholder='Введите свой пароль'
           required
