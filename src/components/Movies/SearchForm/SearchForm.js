@@ -1,8 +1,9 @@
 import FilterCheckbox from './FilterCheckbox/FilterCheckbox';
 import './SearchForm.css';
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import { isSaveCheckBox } from '../../../utils/options';
 import { URLS } from "../../../utils/constants";
+import { AppContext } from '../../../contexts/AppContext';
 
 function SearchForm({
     switchOn,
@@ -18,6 +19,7 @@ function SearchForm({
     const [moviePath, ] = useState(window.location.pathname);
     const [query, setQuery] = useState(movieQuery || '');
     const [isEmpty, setEmpty] = useState(false);
+    const {isLoading} = useContext(AppContext);
 
     const handleInputChange = (event) => {
         setQuery(event.target.value);
@@ -65,7 +67,7 @@ function SearchForm({
                     </input>
                     <span className={`search-form__error ${isEmpty ? ' search-form__error_visible' : ''}`}>Нужно ввести ключевое слово</span>
                 </div>
-                    <button className='search-form__button' type='submit'>Найти</button>
+                    <button className='search-form__button' type='submit' disabled={isLoading}>Найти</button>
             </div>
             <div className='search-form__switch-box'>
                 <p className='search-form__switch-text'>Короткометражки</p>

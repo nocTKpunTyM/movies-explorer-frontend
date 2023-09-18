@@ -15,15 +15,17 @@ import MobileMenu from '../MobileMenu/MobileMenu';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import { getMovies } from '../../utils/MoviesApi';
-import { API_URL_IMG } from '../../utils/constants';
+import { API_URL_IMG, ERR_API } from '../../utils/constants';
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   const navigate = useNavigate();
+  const token = localStorage.getItem('token');
   const [currentUser, setCurrentUser] = useState({});
   const [isLogin, setLogin] = useState(localStorage.getItem('isLogin') || false);
   const [isLoading, setLoading] = useState(false);
-  const token = localStorage.getItem('token');
+  const [userFeedback, setUserFeedback] = useState();
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleLogout = () => {
     setCurrentUser('');
@@ -50,17 +52,26 @@ function App() {
   }, [isLogin])
 
 
+// ДАЛЕЕ ЗАПРОСЫ ДЛЯ РАБОТЫ С ПОЛЬЗОВАТЕЛЕМ
   function toAuthRegister({ name, email, password }) {
     mainApi.register({ name, email, password })
-      .then(() => {
-        setLogin(true);
-        localStorage.setItem('isLogin', true);
+      .then((data) => {
+        toAuthLogin({email, password});
       })
       .then(() => {
-        console.log(isLogin);
+        console.log('excess then');
         navigate(URLS.MOVIES, { replace: true });
       })
-      .catch(console.error);
+      .catch((err) => {
+        if (err === 'Ошибка: 409') {    
+          setErrorMessage('Пользователь с таким email уже существует.');
+        } else {
+          setErrorMessage('При регистрации пользователя произошла ошибка.');
+        }
+        setTimeout(() => {
+          setErrorMessage('');
+        }, 3000);
+      })
   }
 
   function toAuthLogin({ email, password }) {
@@ -73,13 +84,39 @@ function App() {
           navigate(URLS.MOVIES);
         }
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.log(err);
+        if (err === 'Ошибка: 401' || err === 'Ошибка: 400') {    
+          setErrorMessage('Вы ввели неправильный логин или пароль.');
+        } else {
+          setErrorMessage('На сервере произошла ошибка.');
+        }  
+        setTimeout(() => {
+          setErrorMessage('');
+        }, 2000);
+      })
   }
 
   function onUpdateUser(name, email) {
     mainApi.updateUser({ token, name, email })
-    .then(setCurrentUser)
-    .catch(console.error);
+    .then((user) => {
+      setCurrentUser(user);
+      setUserFeedback(true);
+      setTimeout(() => {
+        setUserFeedback(false);
+      }, 2000);
+    })
+    .catch((err) => {
+      console.log(err);
+      if (err === 'Ошибка: 409') {    
+        setErrorMessage('Пользователь с таким email уже существует.');
+      } else {
+        setErrorMessage('При обновлении профиля произошла ошибка.');
+      }
+      setTimeout(() => {
+        setErrorMessage('');
+      }, 3000);
+    })
   }
 
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -123,7 +160,12 @@ function App() {
         console.log('ПОЛУЧИЛ 100 ФИЛЬМОВ ИЗ АПИ - АПИ - АПИ - МОЖНО ТОЛЬКО ОДИН РАЗ!');
         localStorage.setItem('movies', JSON.stringify(moviesFromApi));
       })
-      .catch(console.error)
+      .catch((err) => {
+        setErrorMessage(ERR_API);
+        setTimeout(() => {
+          setErrorMessage('');
+        }, 5000);
+      })
       .finally(() => setLoading(false));
   }
 
@@ -179,20 +221,29 @@ function toDeleteMovie(movie) {
                                     toGetSavedMovies,
                                     toSaveMovie,
                                     toDeleteMovie,
-                                    isLoading }}>
+                                    isLoading,
+                                    errorMessage }}>
         <CurrentUserContext.Provider value={currentUser}>
           <MobileMenu />   
           <Routes>
             <Route path="/" element={ <Main /> } />
-            <Route path={URLS.SIGNUP} element={ !isLogin ? <Register handleRegister={toAuthRegister}/> : <Navigate to={URLS.MOVIES} replace/> } />
-            <Route path={URLS.SIGNIN} element={ !isLogin ? <Login handleLogin={toAuthLogin}/> : <Navigate to={URLS.MOVIES} replace/> } />
-
+            <Route path={URLS.SIGNUP}
+              element={ !isLogin ?
+                        <Register handleRegister={toAuthRegister}/> :
+                        <Navigate to={URLS.MOVIES} replace/>}
+            />
+            <Route path={URLS.SIGNIN}
+              element={ !isLogin ?
+                        <Login handleLogin={toAuthLogin}/> :
+                        <Navigate to={URLS.MOVIES} replace/>}
+            />
             <Route path={URLS.PROFILE}
               element={<ProtectedRoute
                 element={Profile}
                 isLogin={isLogin}
                 handleLogout={handleLogout}
                 onUpdateUser={onUpdateUser}
+                userFeedback={userFeedback}
               />}
             />
             <Route path={URLS.MOVIES}

@@ -12,6 +12,13 @@
     transition: visibility 0.3s, opacity 0.3s linear;
 }
 
+@media screen and (max-width: 767px) {
+	.movies-card__like {
+        visibility: visible;
+        opacity: 1;
+	}
+}
+
 .movies-card__like:hover {
     cursor: pointer;
 }

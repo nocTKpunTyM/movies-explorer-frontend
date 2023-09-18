@@ -61,7 +61,7 @@ function Movies({toGetMovies, movies, setMovies}) {
   }, [moviesForRender, switchOn, savedMovies])
 
   useEffect(() => {
-    if (Object.keys(moviesReadyToRender).length === 0) {
+    if (Object.keys(moviesReadyToRender).length === 0 && movieQuery) {
       setFeedback(true);
     } else {
       setFeedback(false);
@@ -97,7 +97,7 @@ function Movies({toGetMovies, movies, setMovies}) {
       movieForLike.isLiked = true;
     }
   }
-  console.log(needFeedback);
+  
   return (
     <>
         <Header />

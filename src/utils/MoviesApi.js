@@ -7,8 +7,7 @@ export const getMovies = () => {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify()
+        }
     })
         .then(checkResponse);
 };

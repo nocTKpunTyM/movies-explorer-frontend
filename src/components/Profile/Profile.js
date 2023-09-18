@@ -5,15 +5,17 @@ import { useState, useEffect, useContext } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { PATERN_EMAIL } from '../../utils/constants';
+import { AppContext } from '../../contexts/AppContext';
 
-function Profile({handleLogout, onUpdateUser}) {
+function Profile({handleLogout, onUpdateUser, userFeedback}) {
   const [isReadOnly, setReadOnly] = useState(true);
   const user = useContext(CurrentUserContext);
+  const {errorMessage} = useContext(AppContext);
   const { values, handleChange, errors, isValid, setValues, setIsValid } = useFormAndValidation();
 
   useEffect(() => {
     setValues(user);
-  }, [user]);
+  }, [user, errorMessage]);
 
   useEffect(() => {
     if (values.name === user.name && values.email === user.email) {
@@ -39,6 +41,8 @@ function Profile({handleLogout, onUpdateUser}) {
         onSubmit={handleSubmit}
         isReadOnly={isReadOnly}
         isValid={isValid}
+        userFeedback={userFeedback}
+        errorMessage={errorMessage}
       >
       <div className="profile-form__input-block">
         <label className="profile-form__label">Имя</label>
@@ -53,7 +57,7 @@ function Profile({handleLogout, onUpdateUser}) {
           readOnly={isReadOnly}
         />
         {!isValid && (
-          <span className="profile-form__error">
+          <span className="profile-form__input-error">
             {errors.name}
           </span>
         )}    
@@ -72,7 +76,7 @@ function Profile({handleLogout, onUpdateUser}) {
           pattern={PATERN_EMAIL}
         />
         {!isValid && (
-          <span className="profile-form__error">
+          <span className="profile-form__input-error">
             {errors.email}
           </span>
         )}

@@ -4,16 +4,19 @@ import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { Link } from 'react-router-dom';
 import { URLS, PATERN_EMAIL } from '../../utils/constants';
 import Header from '../Header/Header';
+import {useContext} from 'react';
+import { AppContext } from '../../contexts/AppContext';
 
 function Register({ handleRegister }) {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
+  const {errorMessage} = useContext(AppContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, password } = values;
     handleRegister({ name, email, password });
   }
-  const regForEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+ 
   return (
     <>
     <Header />
@@ -24,6 +27,7 @@ function Register({ handleRegister }) {
       submitText="Зарегистрироваться"
       onSubmit={handleSubmit}
       isValid={isValid}
+      errorAuth={errorMessage}
     >
       <div className="auth-form__input-block">
         <label className="auth-form__label">Имя</label>
@@ -35,7 +39,7 @@ function Register({ handleRegister }) {
           required
         />
         {!isValid && (
-          <span className="auth-form__error">
+          <span className="auth-form__input-error">
             {errors.name}
           </span>
         )}
@@ -52,7 +56,7 @@ function Register({ handleRegister }) {
           required
         />
         {!isValid && (
-          <span className="auth-form__error">
+          <span className="auth-form__input-error">
             {errors.email}
           </span>
         )}
@@ -68,7 +72,7 @@ function Register({ handleRegister }) {
           required
         />
         {!isValid && (
-          <span className="auth-form__error">
+          <span className="auth-form__input-error">
             {errors.password}
           </span>
         )}

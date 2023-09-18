@@ -1,7 +1,7 @@
 .search-form__button {
     margin: 0;
     padding: 0;
-    width: 58px;
+    min-width: 58px;
     height: 34px;
     border: none;
     background: none;

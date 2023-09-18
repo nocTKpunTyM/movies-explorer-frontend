@@ -3,9 +3,12 @@ import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { Link } from 'react-router-dom';
 import { URLS, PATERN_EMAIL } from '../../utils/constants';
 import Header from '../Header/Header';
+import {useContext} from 'react';
+import { AppContext } from '../../contexts/AppContext';
 
 function Login({handleLogin}) {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
+  const {errorMessage} = useContext(AppContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +25,7 @@ function Login({handleLogin}) {
       submitText="Войти"
       onSubmit={handleSubmit}
       isValid={isValid}
+      errorAuth={errorMessage}
     >
       <div className="auth-form__input-block">
         <label className="auth-form__label">E-mail</label>
@@ -35,7 +39,7 @@ function Login({handleLogin}) {
           required
         />
         {!isValid && (
-          <span className="auth-form__error">
+          <span className="auth-form__input-error">
             {errors.email}
           </span>
         )}
@@ -51,7 +55,7 @@ function Login({handleLogin}) {
           required
         />
         {!isValid && (
-          <span className="auth-form__error">
+          <span className="auth-form__input-error">
             {errors.password}
           </span>
         )}

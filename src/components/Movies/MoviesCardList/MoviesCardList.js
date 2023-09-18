@@ -12,7 +12,7 @@ function MoviesCardList({movies, toChangePreference, needFeedback}) {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const [thatEnough, setThatEnough] = useState(true);
     const whatPath = window.location.pathname;
-    const {isLoading} = useContext(AppContext);
+    const {isLoading, errorMessage} = useContext(AppContext);
 
     useEffect(() => {
         window.addEventListener("resize", throttledСhangeScreen);
@@ -20,6 +20,12 @@ function MoviesCardList({movies, toChangePreference, needFeedback}) {
           window.removeEventListener("resize", throttledСhangeScreen);
         };
     }, []);
+
+    useEffect(() => {
+        if (needFeedback) {
+            setThatEnough(true)
+        }
+    })
 
     function throttle(callee, timeout) {
         let timer = null
@@ -85,10 +91,10 @@ function MoviesCardList({movies, toChangePreference, needFeedback}) {
         } 
     }
   }
-  console.log(needFeedback);
+ 
     return (
         <>
-        {needFeedback &&<Feedback />}
+        <Feedback needFeedback={needFeedback} errorMessage={errorMessage}/>
         {isLoading && <Preloader />}
         <section className='movies-cardlist'>
             <ul className='movies-cardlist__box'>

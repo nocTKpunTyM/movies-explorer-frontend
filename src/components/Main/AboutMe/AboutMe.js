@@ -8,10 +8,10 @@ function AboutMe() {
         <div className='about-me__content-block'>
             <img src={avatar} alt='Фронтенд-разработчик Максим' className='about-me__avatar'></img>
             <div className='about-me__text-block'>
-                <h3 className='about-me__sub-title'>Виталий</h3>
-                <h4 className='about-me__codicil'>Фронтенд-разработчик, 30 лет</h4>
+                <h3 className='about-me__sub-title'>Андрей</h3>
+                <h4 className='about-me__codicil'>Веб-разработчик, 36 лет</h4>
                 <div className='about-me__flex'>
-                    <p className='about-me__paragraph'>Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.</p>
+                    <p className='about-me__paragraph'>Я родился и живу в Санкт-Петербурге. У меня есть жена и два прекрасных ребенка - сын и дочь. Больше всего люблю путешествовать. Всей семьей каждое лето мы отдыхаем в кемпинге, где встречаем много интересных людей из самых различных городов нашей страны. Свой первый код на HTML я написал 12 лет назад. А год назад решил начать кодить по большому.</p>
                     <a href='https://github.com/nocTKpunTyM?tab=repositories' target="_blank" rel="noreferrer" className='about-me__link'>Github</a>
                 </div>
             </div>

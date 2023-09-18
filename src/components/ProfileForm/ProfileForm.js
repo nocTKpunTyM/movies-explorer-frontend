@@ -9,8 +9,10 @@ function ProfileForm({
                 handleLogout,
                 setReadOnly,
                 isReadOnly,
-                onSubmit}) {
-
+                onSubmit,
+                userFeedback,
+                errorMessage}) {
+                    
     const [isSubmitVisible, setSubmitVisible] = useState(false);
     const displaySubmit = () => {
         setSubmitVisible(!isSubmitVisible);
@@ -26,7 +28,8 @@ function ProfileForm({
                 {children}
             </div>
             <div className="profile-form__buttons">
-                <span className="profile-form__feedback">Данные пользователя обновлены</span>
+                {userFeedback && <span className="profile-form__feedback profile-form__feedback_green">Данные пользователя обновлены</span>}
+                {errorMessage && <span className="profile-form__error">{errorMessage}</span>}
             <button
                 type="submit"
                 className=

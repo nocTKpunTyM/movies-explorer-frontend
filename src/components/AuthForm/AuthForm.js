@@ -1,6 +1,7 @@
 import './AuthForm.css';
 
-function AuthForm({ name, title, submitText, isValid, onSubmit, children }) {
+function AuthForm({ name, title, submitText, isValid, onSubmit, children, errorAuth }) {
+
     return (
             <section className="auth-form">
                 <h1 className='auth-form__title'>{title}</h1>
@@ -8,11 +9,15 @@ function AuthForm({ name, title, submitText, isValid, onSubmit, children }) {
                     <div className="auth-form__inputs">
                         {children}
                     </div>
-                    <button
-                        type='submit'
-                        className={`auth-form__submit ${!isValid && "auth-form__submit_inactive"}`}
-                        disabled={!isValid}
-                        >{submitText}</button>
+                    <div className='auth-form__buttons'>
+                        {errorAuth ? <span className='auth-form__error'>{errorAuth}</span> : ''}
+                        <button
+                            type='submit'
+                            className={`auth-form__submit${!isValid ? " auth-form__submit_inactive" : ""}`}
+                            disabled={!isValid}
+                            >{submitText}
+                        </button>
+                    </div>
                 </form>
             </section>
     );
