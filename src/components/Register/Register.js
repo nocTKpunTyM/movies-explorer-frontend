@@ -1,15 +1,18 @@
 import AuthForm from '../AuthForm/AuthForm';
-// import { useEffect } from 'react';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { Link } from 'react-router-dom';
 import { URLS, PATERN_EMAIL } from '../../utils/constants';
 import Header from '../Header/Header';
-import {useContext} from 'react';
+import {useContext, useEffect} from 'react';
 import { AppContext } from '../../contexts/AppContext';
 
 function Register({ handleRegister }) {
-  const { values, handleChange, errors, isValid } = useFormAndValidation();
+  const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation();
   const {errorMessage} = useContext(AppContext);
+
+  useEffect(() => {
+    resetForm();
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
