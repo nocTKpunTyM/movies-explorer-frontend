@@ -9,3 +9,7 @@ HTML
 JSX
 Figma
 
+## Для запуска фронта:
+npm run start
+
+Может понадобится react-router
