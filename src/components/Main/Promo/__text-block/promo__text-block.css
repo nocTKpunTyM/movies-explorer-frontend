@@ -1,0 +1,22 @@
+.promo__text-block {
+        margin: 44px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+	.promo__text-block {
+        margin: 50px 0 0 0;
+        flex-direction: column;
+        align-items: center;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.promo__text-block {
+        margin: 0 0 0 70px;
+        flex-direction: column;
+        align-items: flex-start;
+	}
+}

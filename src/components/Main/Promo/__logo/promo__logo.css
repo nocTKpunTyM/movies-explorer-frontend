@@ -1,0 +1,17 @@
+.promo__logo {
+    width: 210px;
+    height: 206px;
+}
+
+@media screen and (min-width: 768px) {
+	.promo__logo {
+        width: 310px;
+        height: 304px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.promo__logo {
+        margin: 0 70px 0 0;
+	}
+}

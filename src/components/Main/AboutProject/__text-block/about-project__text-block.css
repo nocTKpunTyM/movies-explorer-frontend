@@ -1,0 +1,15 @@
+.about-project__text-block {
+    margin: 0 0 58px 0;
+}
+
+@media screen and (min-width: 768px) {
+	.about-project__text-block {
+        min-width: 310px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.about-project__text-block {
+        min-width: 490px;
+	}
+}

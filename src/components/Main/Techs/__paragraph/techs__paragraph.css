@@ -1,0 +1,27 @@
+.techs__paragraph {
+    margin: 24px 0 0 0;
+    text-align: center;
+    font-size: 11px;
+    line-height: 16px; /* 145.455% */
+    letter-spacing: -0.44px;
+}
+
+@media screen and (min-width: 768px) {
+	.techs__paragraph {
+        margin: 22px 0 0 0;
+        max-width: 420px;
+        font-size: 12px;
+        line-height: 18px; /* 150% */
+        letter-spacing: -0.48px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.techs__paragraph {
+        margin: 26px 0 0 0;
+        max-width: 460px;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: -0.56px;
+	}
+}

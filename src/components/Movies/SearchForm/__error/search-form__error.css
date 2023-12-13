@@ -1,0 +1,22 @@
+.search-form__error {
+    margin: 4px 0 0 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 10px;
+    text-align: left;
+    color: #FF3055;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.6s linear;
+}
+
+.search-form__error_visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+    .search-form__error {
+        font-size: 13px;
+    }
+}

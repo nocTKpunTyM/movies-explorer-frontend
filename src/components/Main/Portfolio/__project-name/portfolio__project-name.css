@@ -1,0 +1,21 @@
+.portfolio__project-name {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 28px; /* 155.556% */
+    letter-spacing: -0.72px;
+}
+
+@media screen and (min-width: 768px) {
+	.portfolio__project-name {
+        font-size: 28px;
+        line-height: 50px; /* 178.571% */
+        letter-spacing: -1.12px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.portfolio__project-name {
+        font-size: 30px;
+	}
+}

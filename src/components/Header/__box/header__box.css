@@ -1,0 +1,46 @@
+.header__box {
+	width: 89%;
+    min-width: 1140px;
+	display: flex;
+	justify-content: space-between;
+}
+
+@media screen and (min-width: 1400px) {
+	.header__box {
+		width: 92%;
+	}
+}
+
+@media screen and (max-width: 1279px) {
+	.header__box {
+		width: 92%;
+        min-width: 708px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.header__box {
+		width: 92%;
+        min-width: 508px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.header__box {
+		width: 90%;
+        min-width: 292px;
+	}
+}
+
+.header-auth__box {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+@media screen and (min-width: 768px) {
+	.header-auth__box {
+		width: 70%;
+		max-width: 396px;
+	}
+}

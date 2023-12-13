@@ -1,0 +1,16 @@
+.mobile-menu__white-board {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+
+
+@media screen and (min-width: 600px) {
+	.mobile-menu__white-board {
+        width: 520px;
+	}
+}

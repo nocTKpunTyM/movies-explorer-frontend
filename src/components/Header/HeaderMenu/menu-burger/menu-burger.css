@@ -1,0 +1,31 @@
+@import url(./_type/menu-burger_black.css);
+@import url(./_type/menu-burger_white.css);
+
+.menu-burger {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+	.menu-burger {
+		margin: 11px -2px 0 0;
+        padding: 0;
+        width: 48px;
+        height: 48px;
+        display: block;
+        border: none;
+        transition: opacity 0.2s linear;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.menu-burger {
+		margin: 15px 0 0 0;
+        width: 41px;
+        height: 41px;
+	}
+}
+
+.menu-burger:hover {
+    cursor: pointer;
+    opacity: 70%;
+}

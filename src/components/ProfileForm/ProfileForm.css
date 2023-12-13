@@ -1,0 +1,35 @@
+@import url(./__inputs/profile-form__inputs.css);
+@import url(./__input-block/profile-form__input-block.css);
+@import url(./__error/profile-form__error.css);
+@import url(./__input/profile-form__input.css);
+@import url(./__label/profile-form__label.css);
+@import url(./__submit/profile-form__submit.css);
+@import url(./__bottom-link/profile-form__bottom-link.css);
+@import url(./__save-link/profile-form__save-link.css);
+@import url(./__feedback/profile-form__feedback.css);
+
+.profile-form {
+    margin: 51px 0 0 0;
+    padding: 0;
+    width: 80%;
+    min-width: 260px;
+    min-height: 527px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+	.profile-form {
+        margin: 66px 0 0 0;
+        min-width: 410px;
+        min-height: 363px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.profile-form {
+        margin: 93px 0 0 0;
+        min-height: 370px;
+	}
+}

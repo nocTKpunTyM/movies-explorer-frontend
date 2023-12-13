@@ -1,0 +1,36 @@
+.promo__button {
+    margin: 80px 0 0 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 129px;
+    height: 36px;
+    border: 1px solid #8798a1;
+    border-radius: 3px;
+    background: #073042;
+
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    text-decoration: none;
+    transition: opacity 0.2s linear;
+}
+
+@media screen and (min-width: 768px) {
+	.promo__button {
+        margin: 92px 0 0 0;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.promo__button {
+        margin: 146px 0 0 0;
+	}
+}
+
+.promo__button:hover {
+        cursor: pointer;
+        opacity: 70%;
+}

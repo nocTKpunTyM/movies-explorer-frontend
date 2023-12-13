@@ -1,0 +1,11 @@
+.about-me__link {
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s linear;
+}
+
+.about-me__link:hover {
+    opacity: 70%;
+}

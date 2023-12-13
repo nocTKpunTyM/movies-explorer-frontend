@@ -1,0 +1,32 @@
+.profile-form__submit {
+    margin-bottom: 40px;
+    padding: 0;
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    background-color: #3456F3;
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.6s linear;
+}
+
+.profile-form__submit:hover {
+    opacity: 80%;
+    cursor: pointer;
+}
+
+.profile-form__submit_visible {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+.profile-form__submit_inactive {
+    background: #F8F8F8;
+    color: #C2C2C2;
+}
