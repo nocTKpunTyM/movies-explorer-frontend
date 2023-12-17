@@ -1,0 +1,24 @@
+@import url(./__button-login/menu-two-buttons__button-login.css);
+@import url(./__button-reg/menu-two-buttons__button-reg.css);
+
+.menu-two-buttons {
+    margin: 16px 0 0 0;
+    width: 182px;
+    height: 33px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 1280px) {
+	.menu-two-buttons {
+        margin: 20px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+	.menu-two-buttons {
+        width: 132px;
+        height: 34px;
+    }
+}

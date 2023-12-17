@@ -1,0 +1,74 @@
+@import url(./__title/auth-form__title.css);
+@import url(./__inputs/auth-form__inputs.css);
+@import url(./__input-block/auth-form__input-block.css);
+@import url(./__error/auth-form__error.css);
+@import url(./__input/auth-form__input.css);
+@import url(./__label/auth-form__label.css);
+@import url(./__submit/auth-form__submit.css);
+
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+	.auth-form {
+        margin: 0;
+        width: 396px;
+		justify-content: left;
+	}
+}
+
+.auth-form__form {
+    margin: 80px 30px 0 30px;
+    padding: 0;
+    width: 100%;
+    min-height: 470px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+	.auth-form__form {
+        margin: 40px 0 0 0;
+        min-height: 380px;
+	}
+}
+
+
+.reg-text {
+    margin: 15px 0 30px 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 12px;
+    color: #A0A0A0;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+	.reg-text {
+        margin: 16px 0 0 0;
+        font-size: 14px;
+	}
+}
+
+
+.reg-link {
+    font-size: 12px;
+    color: #3456F3;
+    text-decoration: none;
+    transition: opacity 0.2s linear;
+}
+
+@media screen and (min-width: 768px) {
+	.reg-link {
+        font-size: 14px;
+	}
+}
+
+.reg-link:hover {
+    opacity: 70%;
+}

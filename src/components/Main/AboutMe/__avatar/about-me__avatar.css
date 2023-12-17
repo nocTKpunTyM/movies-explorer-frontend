@@ -1,0 +1,16 @@
+.about-me__avatar {
+    width: 292px;
+}
+
+@media screen and (min-width: 768px) {
+	.about-me__avatar {
+        width: 255px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.about-me__avatar {
+        margin: 2px 0 0 0;
+        width: 270px;
+	}
+}

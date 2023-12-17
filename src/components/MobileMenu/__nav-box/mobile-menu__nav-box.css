@@ -1,0 +1,12 @@
+.mobile-menu__nav-box {
+    margin: 102px 0 0 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+	.mobile-menu__nav-box {
+        margin: 106px 0 0 0;
+	}
+}

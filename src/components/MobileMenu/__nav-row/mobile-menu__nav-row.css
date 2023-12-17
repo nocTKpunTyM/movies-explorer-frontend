@@ -1,0 +1,12 @@
+.mobile-menu__nav-row {
+    margin: 0 0 17px 0;
+    height: 28px;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+	.mobile-menu__nav-row {
+        margin: 0 0 14px 0;
+        padding-bottom: 8px;
+	}
+}

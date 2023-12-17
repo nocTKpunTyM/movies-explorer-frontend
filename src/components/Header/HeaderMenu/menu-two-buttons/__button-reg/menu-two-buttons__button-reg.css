@@ -1,0 +1,21 @@
+.menu-two-buttons__button-reg {
+    margin: 0;
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 16px;
+    text-decoration: none;
+    color: #FFF;
+    transition: opacity 0.2s linear;
+}
+
+@media screen and (min-width: 768px) {
+	.menu-two-buttons__button-reg {
+        font-size: 12px;
+    }
+}
+
+.menu-two-buttons__button-reg:hover {
+    cursor: pointer;
+    opacity: 70%;
+}

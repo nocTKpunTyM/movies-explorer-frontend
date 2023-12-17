@@ -1,0 +1,27 @@
+.portfolio__project-button {
+    margin: 7px 5px 0 0;
+    padding: 0;
+    border: none;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    background-image: url(../../../../images/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: opacity 0.2s linear;
+}
+
+@media screen and (min-width: 768px) {
+	.portfolio__project-button {
+        margin: 17px 5px 0 0;
+        background-size:contain;
+        width: 17px;
+        height: 20px;
+	}
+}
+
+.portfolio__project-button:hover {
+    cursor: pointer;
+    opacity: 70%;
+}

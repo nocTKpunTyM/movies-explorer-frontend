@@ -1,0 +1,21 @@
+.techs__content-block {
+    margin: 28px 0 0 0;
+    padding: 61px 0 0 0;
+    border-top: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+	.techs__content-block {
+                margin: 23px 0 0 0;
+                padding: 81px 0 0 0;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.techs__content-block {
+                padding: 91px 0 0 0;
+	}
+}

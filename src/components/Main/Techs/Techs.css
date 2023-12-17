@@ -1,0 +1,28 @@
+@import url(./__content-block/techs__content-block.css);
+@import url(./__title/techs__title.css);
+@import url(./__sub-title/techs__sub-title.css);
+@import url(./__paragraph/techs__paragraph.css);
+@import url(./__cubs/techs__cubs.css);
+@import url(./__cub/techs_cub.css);
+
+.techs {
+    width: 80%;
+    min-width: 284px;
+    padding: 62px 0 69px 0;
+}
+
+@media screen and (min-width: 768px) {
+	.techs {
+        width: 87%;
+        min-width: 668px;
+        padding: 98px 0 69px 0;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.techs {
+        width: 89%;
+        min-width: 1140px;
+        padding: 128px 0 69px 0;
+	}
+}

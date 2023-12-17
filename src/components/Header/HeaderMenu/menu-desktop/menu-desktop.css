@@ -1,0 +1,11 @@
+.menu-desktop {
+    margin: 21px 2px 0 0;
+    width: 100px;
+    height: 38px;
+}
+
+@media screen and (max-width: 768px) {
+	.menu-desktop {
+		display: none;
+	}
+}

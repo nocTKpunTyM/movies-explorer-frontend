@@ -1,0 +1,19 @@
+.about-project__period {
+    padding: 2px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (min-width: 768px) {
+	.about-project__period {
+        margin: 33px 0 0 0;
+        width: 668px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.about-project__period {
+        margin: 50px 0 0 0;
+        width: 1140px;
+	}
+}

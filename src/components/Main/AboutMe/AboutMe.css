@@ -1,0 +1,31 @@
+@import url(./__avatar/about-me__avatar.css);
+@import url(./__content-block/about-me__content-block.css);
+@import url(./__paragraph/about-me__paragraph.css);
+@import url(./__sub-title/about-me__sub-title.css);
+@import url(./__title/about-me__title.css);
+@import url(./__codicil/about-me__codicil.css);
+@import url(./__text-block/about-me__text-block.css);
+@import url(./__link/about-me__link.css);
+@import url(./__flex/about-me__flex.css);
+
+.about-me {
+    width: 80%;
+    min-width: 292px;
+    padding: 73px 0 69px 0;
+}
+
+@media screen and (min-width: 768px) {
+	.about-me {
+        width: 87%;
+        min-width: 668px;
+        padding: 112px 0 69px 0;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.about-me {
+        width: 89%;
+        min-width: 1140px;
+        padding: 142px 0 69px 0;
+	}
+}

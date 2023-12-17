@@ -1,0 +1,35 @@
+@import url(./__white-board/mobile-menu__white-board.css);
+@import url(./__btn-close-box/mobile-menu__btn-close-box.css);
+@import url(./__btn-close/mobile-menu__btn-close.css);
+@import url(./__nav-box/mobile-menu__nav-box.css);
+@import url(./__nav/mobile-menu__nav.css);
+@import url(./__nav-row/mobile-menu__nav-row.css);
+@import url(./__nav-link/mobile-menu__nav-link.css);
+@import url(./__btn-profile-box/mobile-menu__btn-profile-box.css);
+
+
+.mobile-menu {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+
+    background: rgba(0,0,0,0.3);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s linear;
+}
+
+@media screen and (min-width: 600px) {
+	.mobile-menu {
+        display: flex;
+        flex-direction: row-reverse;
+	}
+}
+
+.mobile-menu_opened {
+    visibility: visible;
+    opacity: 1;
+}

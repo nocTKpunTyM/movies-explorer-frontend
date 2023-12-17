@@ -1,0 +1,46 @@
+.navigation {
+    flex-grow: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+	.navigation {
+		display: none;
+	}
+}
+
+.navigation__ul {
+    margin: 0 0 0 64px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 16px;
+}
+
+.navigation__line {
+    display: inline;
+    
+}
+
+.navigation__link {
+    color: black;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    transition: opacity 0.2s linear;
+}
+
+.navigation__link:hover {
+    opacity: 80%;
+}
+
+.navigation__link_land {
+    color: white;
+}
+
+.navigation__link_active {
+    font-weight: 500;
+}

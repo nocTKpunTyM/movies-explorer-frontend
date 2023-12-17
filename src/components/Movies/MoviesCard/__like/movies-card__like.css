@@ -1,0 +1,29 @@
+.movies-card__like {
+    margin: 0;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s linear;
+}
+
+.movies-card__like:hover {
+    cursor: pointer;
+}
+
+.movies-card__like_delete {
+    background-image: url(../../../../images/delete.svg);
+}
+
+.movies-card__like_grey {
+    background-image: url(../../../../images/like-grey.svg);
+}
+
+.movies-card__like_red {
+    background-image: url(../../../../images/like-red.svg);
+}

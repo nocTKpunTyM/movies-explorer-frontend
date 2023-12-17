@@ -1,0 +1,27 @@
+.movies-cardlist {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.movies-cardlist__box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        gap: 33.5px;
+}
+
+@media screen and (min-width: 768px) {
+	.movies-cardlist__box {
+                width: 710px;
+                gap: 29px 30px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.movies-cardlist__box {
+                width: 1140px;
+                gap: 37px 20px;
+	}
+}
